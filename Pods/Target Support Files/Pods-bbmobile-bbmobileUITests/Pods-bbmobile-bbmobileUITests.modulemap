@@ -1,0 +1,6 @@
+framework module Pods_bbmobile_bbmobileUITests {
+  umbrella header "Pods-bbmobile-bbmobileUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>281602687426-rpbibfc2rq9j2oei34t647piejk0l76k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.281602687426-rpbibfc2rq9j2oei34t647piejk0l76k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCE7925axVebg0bPKFmHXZNhrbsjc-8dJg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>281602687426</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.thirayut.bbmobile</string>
+	<key>PROJECT_ID</key>
+	<string>bb-mobile-2fa59</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bb-mobile-2fa59.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:281602687426:ios:421ce47ac6da95a25d165b</string>
+</dict>
+</plist>

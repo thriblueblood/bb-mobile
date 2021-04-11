@@ -8,6 +8,7 @@ target 'bbmobile' do
   # Pods for bbmobile
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Kingfisher', '~> 6.0'
   
 
 

@@ -12,7 +12,15 @@
 		E494EC422E5DF4E32785FB1C /* Pods_bbmobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACFFD3C67BCC6E395372826 /* Pods_bbmobile.framework */; };
 		FF0C0E62261C7F4B0006FADD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C0E61261C7F4A0006FADD /* LoginView.swift */; };
 		FF0C0E68261DBEFF0006FADD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF0C0E67261DBEFF0006FADD /* GoogleService-Info.plist */; };
+		FF13E7CC2621B5DA00DD34E5 /* PreviewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */; };
+		FF13E7D12621C77D00DD34E5 /* MyListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7D02621C77D00DD34E5 /* MyListButton.swift */; };
+		FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */; };
 		FF8A7637261ECA9400469CFD /* Cocogoose Pro-trial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF8A7636261ECA9400469CFD /* Cocogoose Pro-trial.ttf */; };
+		FFC669F626205A100033C63C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC669F526205A100033C63C /* Book.swift */; };
+		FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0226205A870033C63C /* EachBookHomeView.swift */; };
+		FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0A26205CA80033C63C /* GlobalHelper.swift */; };
+		FFC66A1326205EA10033C63C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A1226205EA10033C63C /* HomeView.swift */; };
+		FFC66A1826205F1D0033C63C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A1726205F1D0033C63C /* HomeViewModel.swift */; };
 		FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C2826144F0F005393F5 /* bbmobileApp.swift */; };
 		FFD50C2B26144F0F005393F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C2A26144F0F005393F5 /* ContentView.swift */; };
 		FFD50C2D26144F13005393F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD50C2C26144F13005393F5 /* Assets.xcassets */; };
@@ -20,7 +28,6 @@
 		FFD50C3B26144F14005393F5 /* bbmobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C3A26144F14005393F5 /* bbmobileTests.swift */; };
 		FFD50C4626144F14005393F5 /* bbmobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C4526144F14005393F5 /* bbmobileUITests.swift */; };
 		FFE12DBD261F39AF00EC63F0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */; };
-		FFE12DC2261F738E00EC63F0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE12DC1261F738E00EC63F0 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +59,15 @@
 		FCB3DE72CD4C8525A320D598 /* Pods-bbmobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bbmobile.debug.xcconfig"; path = "Target Support Files/Pods-bbmobile/Pods-bbmobile.debug.xcconfig"; sourceTree = "<group>"; };
 		FF0C0E61261C7F4A0006FADD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF0C0E67261DBEFF0006FADD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHomeView.swift; sourceTree = "<group>"; };
+		FF13E7D02621C77D00DD34E5 /* MyListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListButton.swift; sourceTree = "<group>"; };
+		FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FF8A7636261ECA9400469CFD /* Cocogoose Pro-trial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cocogoose Pro-trial.ttf"; sourceTree = "<group>"; };
+		FFC669F526205A100033C63C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		FFC66A0226205A870033C63C /* EachBookHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachBookHomeView.swift; sourceTree = "<group>"; };
+		FFC66A0A26205CA80033C63C /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
+		FFC66A1226205EA10033C63C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FFC66A1726205F1D0033C63C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FFD50C2526144F0F005393F5 /* bbmobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bbmobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD50C2826144F0F005393F5 /* bbmobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bbmobileApp.swift; sourceTree = "<group>"; };
 		FFD50C2A26144F0F005393F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,7 +81,6 @@
 		FFD50C4526144F14005393F5 /* bbmobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bbmobileUITests.swift; sourceTree = "<group>"; };
 		FFD50C4726144F14005393F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		FFE12DC1261F738E00EC63F0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +134,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FFC669F4262059DD0033C63C /* IOS */ = {
+			isa = PBXGroup;
+			children = (
+				FF0C0E61261C7F4A0006FADD /* LoginView.swift */,
+				FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */,
+				FFC669F526205A100033C63C /* Book.swift */,
+				FFC66A0226205A870033C63C /* EachBookHomeView.swift */,
+				FFC66A0A26205CA80033C63C /* GlobalHelper.swift */,
+				FFC66A1226205EA10033C63C /* HomeView.swift */,
+				FFC66A1726205F1D0033C63C /* HomeViewModel.swift */,
+				FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */,
+				FF13E7D02621C77D00DD34E5 /* MyListButton.swift */,
+				FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */,
+			);
+			path = IOS;
+			sourceTree = "<group>";
+		};
 		FFD50C1C26144F0F005393F5 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +176,7 @@
 		FFD50C2726144F0F005393F5 /* bbmobile */ = {
 			isa = PBXGroup;
 			children = (
+				FFC669F4262059DD0033C63C /* IOS */,
 				FF8A7636261ECA9400469CFD /* Cocogoose Pro-trial.ttf */,
 				FF0C0E67261DBEFF0006FADD /* GoogleService-Info.plist */,
 				FFD50C2826144F0F005393F5 /* bbmobileApp.swift */,
@@ -152,9 +184,6 @@
 				FFD50C2C26144F13005393F5 /* Assets.xcassets */,
 				FFD50C3126144F13005393F5 /* Info.plist */,
 				FFD50C2E26144F13005393F5 /* Preview Content */,
-				FF0C0E61261C7F4A0006FADD /* LoginView.swift */,
-				FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */,
-				FFE12DC1261F738E00EC63F0 /* HomeView.swift */,
 			);
 			path = bbmobile;
 			sourceTree = "<group>";
@@ -425,9 +454,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF0C0E62261C7F4B0006FADD /* LoginView.swift in Sources */,
+				FFC66A1826205F1D0033C63C /* HomeViewModel.swift in Sources */,
+				FF13E7CC2621B5DA00DD34E5 /* PreviewHomeView.swift in Sources */,
+				FF13E7D12621C77D00DD34E5 /* MyListButton.swift in Sources */,
+				FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */,
 				FFE12DBD261F39AF00EC63F0 /* RegisterView.swift in Sources */,
+				FFC669F626205A100033C63C /* Book.swift in Sources */,
 				FFD50C2B26144F0F005393F5 /* ContentView.swift in Sources */,
-				FFE12DC2261F738E00EC63F0 /* HomeView.swift in Sources */,
+				FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */,
+				FFC66A1326205EA10033C63C /* HomeView.swift in Sources */,
+				FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */,
 				FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

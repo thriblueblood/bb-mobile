@@ -15,7 +15,15 @@
 		FF13E7CC2621B5DA00DD34E5 /* PreviewHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */; };
 		FF13E7D12621C77D00DD34E5 /* MyListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7D02621C77D00DD34E5 /* MyListButton.swift */; };
 		FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */; };
-		FF8A7637261ECA9400469CFD /* Cocogoose Pro-trial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF8A7636261ECA9400469CFD /* Cocogoose Pro-trial.ttf */; };
+		FF13E7E126231D2000DD34E5 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7E026231D2000DD34E5 /* BookDetailView.swift */; };
+		FF13E7F42624353900DD34E5 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF13E7F12624353900DD34E5 /* Lato-Regular.ttf */; };
+		FF13E7F52624353900DD34E5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF13E7F22624353900DD34E5 /* Lato-Black.ttf */; };
+		FF13E7F62624353900DD34E5 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF13E7F32624353900DD34E5 /* Lato-Bold.ttf */; };
+		FF13E7FB26243E0B00DD34E5 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7FA26243E0B00DD34E5 /* Episode.swift */; };
+		FF13E80026244A1A00DD34E5 /* CustomTabSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7FF26244A1A00DD34E5 /* CustomTabSwitcher.swift */; };
+		FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8042624696500DD34E5 /* MoreLikeThis.swift */; };
+		FF13E80F2624749000DD34E5 /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E80E2624749000DD34E5 /* ChapterView.swift */; };
+		FF13E8142624968800DD34E5 /* EpisodeImgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8132624968800DD34E5 /* EpisodeImgView.swift */; };
 		FFC669F626205A100033C63C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC669F526205A100033C63C /* Book.swift */; };
 		FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0226205A870033C63C /* EachBookHomeView.swift */; };
 		FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0A26205CA80033C63C /* GlobalHelper.swift */; };
@@ -62,7 +70,15 @@
 		FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHomeView.swift; sourceTree = "<group>"; };
 		FF13E7D02621C77D00DD34E5 /* MyListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListButton.swift; sourceTree = "<group>"; };
 		FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		FF8A7636261ECA9400469CFD /* Cocogoose Pro-trial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cocogoose Pro-trial.ttf"; sourceTree = "<group>"; };
+		FF13E7E026231D2000DD34E5 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
+		FF13E7F12624353900DD34E5 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		FF13E7F22624353900DD34E5 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		FF13E7F32624353900DD34E5 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		FF13E7FA26243E0B00DD34E5 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		FF13E7FF26244A1A00DD34E5 /* CustomTabSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabSwitcher.swift; sourceTree = "<group>"; };
+		FF13E8042624696500DD34E5 /* MoreLikeThis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreLikeThis.swift; sourceTree = "<group>"; };
+		FF13E80E2624749000DD34E5 /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
+		FF13E8132624968800DD34E5 /* EpisodeImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeImgView.swift; sourceTree = "<group>"; };
 		FFC669F526205A100033C63C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		FFC66A0226205A870033C63C /* EachBookHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachBookHomeView.swift; sourceTree = "<group>"; };
 		FFC66A0A26205CA80033C63C /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
@@ -134,19 +150,73 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FFC669F4262059DD0033C63C /* IOS */ = {
+		FF13E7E52623233D00DD34E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFC669F526205A100033C63C /* Book.swift */,
+				FF13E7FA26243E0B00DD34E5 /* Episode.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF13E7E62623234800DD34E5 /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				FFC66A1226205EA10033C63C /* HomeView.swift */,
+				FFC66A1726205F1D0033C63C /* HomeViewModel.swift */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		FF13E7E72623237000DD34E5 /* ResourceViews */ = {
+			isa = PBXGroup;
+			children = (
+				FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */,
+				FFC66A0226205A870033C63C /* EachBookHomeView.swift */,
+				FF13E7D02621C77D00DD34E5 /* MyListButton.swift */,
+				FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */,
+			);
+			path = ResourceViews;
+			sourceTree = "<group>";
+		};
+		FF13E7E82623239500DD34E5 /* ResourceFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FFC66A0A26205CA80033C63C /* GlobalHelper.swift */,
+			);
+			path = ResourceFiles;
+			sourceTree = "<group>";
+		};
+		FF13E7E9262323C200DD34E5 /* LoginViews */ = {
 			isa = PBXGroup;
 			children = (
 				FF0C0E61261C7F4A0006FADD /* LoginView.swift */,
 				FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */,
-				FFC669F526205A100033C63C /* Book.swift */,
-				FFC66A0226205A870033C63C /* EachBookHomeView.swift */,
-				FFC66A0A26205CA80033C63C /* GlobalHelper.swift */,
-				FFC66A1226205EA10033C63C /* HomeView.swift */,
-				FFC66A1726205F1D0033C63C /* HomeViewModel.swift */,
-				FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */,
-				FF13E7D02621C77D00DD34E5 /* MyListButton.swift */,
-				FF13E7DB2621FF3800DD34E5 /* CustomButton.swift */,
+			);
+			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		FF13E7EA262323DB00DD34E5 /* BookDetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				FF13E7E026231D2000DD34E5 /* BookDetailView.swift */,
+				FF13E7FF26244A1A00DD34E5 /* CustomTabSwitcher.swift */,
+				FF13E8042624696500DD34E5 /* MoreLikeThis.swift */,
+				FF13E80E2624749000DD34E5 /* ChapterView.swift */,
+				FF13E8132624968800DD34E5 /* EpisodeImgView.swift */,
+			);
+			path = BookDetailViews;
+			sourceTree = "<group>";
+		};
+		FFC669F4262059DD0033C63C /* IOS */ = {
+			isa = PBXGroup;
+			children = (
+				FF13E7EA262323DB00DD34E5 /* BookDetailViews */,
+				FF13E7E9262323C200DD34E5 /* LoginViews */,
+				FF13E7E82623239500DD34E5 /* ResourceFiles */,
+				FF13E7E72623237000DD34E5 /* ResourceViews */,
+				FF13E7E62623234800DD34E5 /* HomeViews */,
+				FF13E7E52623233D00DD34E5 /* Model */,
 			);
 			path = IOS;
 			sourceTree = "<group>";
@@ -176,8 +246,10 @@
 		FFD50C2726144F0F005393F5 /* bbmobile */ = {
 			isa = PBXGroup;
 			children = (
+				FF13E7F22624353900DD34E5 /* Lato-Black.ttf */,
+				FF13E7F32624353900DD34E5 /* Lato-Bold.ttf */,
+				FF13E7F12624353900DD34E5 /* Lato-Regular.ttf */,
 				FFC669F4262059DD0033C63C /* IOS */,
-				FF8A7636261ECA9400469CFD /* Cocogoose Pro-trial.ttf */,
 				FF0C0E67261DBEFF0006FADD /* GoogleService-Info.plist */,
 				FFD50C2826144F0F005393F5 /* bbmobileApp.swift */,
 				FFD50C2A26144F0F005393F5 /* ContentView.swift */,
@@ -323,9 +395,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD50C3026144F13005393F5 /* Preview Assets.xcassets in Resources */,
+				FF13E7F62624353900DD34E5 /* Lato-Bold.ttf in Resources */,
 				FFD50C2D26144F13005393F5 /* Assets.xcassets in Resources */,
-				FF8A7637261ECA9400469CFD /* Cocogoose Pro-trial.ttf in Resources */,
 				FF0C0E68261DBEFF0006FADD /* GoogleService-Info.plist in Resources */,
+				FF13E7F52624353900DD34E5 /* Lato-Black.ttf in Resources */,
+				FF13E7F42624353900DD34E5 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,15 +529,21 @@
 			files = (
 				FF0C0E62261C7F4B0006FADD /* LoginView.swift in Sources */,
 				FFC66A1826205F1D0033C63C /* HomeViewModel.swift in Sources */,
+				FF13E80F2624749000DD34E5 /* ChapterView.swift in Sources */,
+				FF13E80026244A1A00DD34E5 /* CustomTabSwitcher.swift in Sources */,
 				FF13E7CC2621B5DA00DD34E5 /* PreviewHomeView.swift in Sources */,
 				FF13E7D12621C77D00DD34E5 /* MyListButton.swift in Sources */,
 				FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */,
 				FFE12DBD261F39AF00EC63F0 /* RegisterView.swift in Sources */,
 				FFC669F626205A100033C63C /* Book.swift in Sources */,
 				FFD50C2B26144F0F005393F5 /* ContentView.swift in Sources */,
+				FF13E8142624968800DD34E5 /* EpisodeImgView.swift in Sources */,
 				FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */,
+				FF13E7FB26243E0B00DD34E5 /* Episode.swift in Sources */,
 				FFC66A1326205EA10033C63C /* HomeView.swift in Sources */,
 				FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */,
+				FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */,
+				FF13E7E126231D2000DD34E5 /* BookDetailView.swift in Sources */,
 				FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

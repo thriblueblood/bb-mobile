@@ -10,8 +10,6 @@ import SwiftUI
 struct CustomButton: View {
     var img : String
     var text : String
-    var textColor : String
-    var btnColor : String
     
     var body: some View {
         Button(action: {
@@ -27,8 +25,6 @@ struct CustomButton: View {
                 Spacer()
             }
             .padding(.all,10)
-            .foregroundColor(Color(textColor))
-            .background(Color(btnColor))
             .cornerRadius(7)
             
           
@@ -38,6 +34,8 @@ struct CustomButton: View {
 
 struct CustomButton_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButton(img: "book", text: "Read now", textColor: "SecondaryColor", btnColor: "MainColor")
+        CustomButton(img: "book", text: "Read now")
+            .foregroundColor(Color("SecondaryColor"))
+            .background(Color("MainColor"))
     }
 }

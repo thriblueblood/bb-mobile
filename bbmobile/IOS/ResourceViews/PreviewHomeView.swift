@@ -46,16 +46,25 @@ struct PreviewHomeView: View {
                 }.background(Color("SecondaryColor"))
                 .padding(.top,100)
                 Spacer()
-                HStack{
-                    Spacer()
-                    MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false)
-                    CustomButton(img: "book", text: "Read now", textColor: "SecondaryColor", btnColor: "MainColor")
-                        .frame(width:155)
-                        .padding(.leading,10)
-                    Spacer()
+                VStack {
+                    KFImage(book.URL)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:200)
+                        .padding(.bottom,100)
+                    HStack{
+                        Spacer()
+                        MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false)
+                        CustomButton(img: "book", text: "Read now")
+                            .background(Color("MainColor"))
+                            .foregroundColor(Color("SecondaryColor"))
+                            .frame(width:155)
+                            .padding(.leading,10)
+                        Spacer()
+                    }.padding(.top,-70)
                 }
             }.background(
-                LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor").opacity(0.0), Color("SecondaryColor").opacity(1.0)]), startPoint: .top, endPoint: .bottom).padding(.top,200)
+                LinearGradient(gradient: Gradient(colors: [Color("SecondaryColor").opacity(0.0), Color("SecondaryColor").opacity(1.0)]), startPoint: .top, endPoint: .bottom)
             )
 
             

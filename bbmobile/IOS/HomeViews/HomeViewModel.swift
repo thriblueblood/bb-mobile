@@ -16,6 +16,8 @@ class HomeViewModel: ObservableObject{
         books.keys.map({String($0)}) //return the array of string in key's books
     }
     
+//    public var allGenres: [SearchGenres] = [.all,.Crime,.Manga,.Novel]
+    
     public func getBook(forCategories : String) -> [Book]{
         return books[forCategories] ?? []
     }
@@ -33,3 +35,10 @@ class HomeViewModel: ObservableObject{
         books["Mystery"] = examBooks
     }
 }
+
+//enum SearchGenres : String {
+//    case all
+//    case Novel
+//    case Manga
+//    case Crime
+//}

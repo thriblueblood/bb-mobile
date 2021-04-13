@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     var viewModel = HomeViewModel()
+    @State private var showBookDetail : Book? = nil
     
     var body: some View {
         ZStack{
@@ -20,35 +21,20 @@ struct HomeView: View {
                 //Main Vstack
                 LazyVStack { //load only the view that user see for performance
                     TopTabBar()
-                        .background(Color("MainColor"))
+                        
                 
                     PreviewHomeView(book: examBook5)
                         .frame(width:UIScreen.main.bounds.width)
                         .padding(.top,-100)
                         .zIndex(-1)
-                    
-                    ForEach(viewModel.allCategories, id:\.self) { category in
-                        VStack{
-                            HStack{
-                                Text(category)
-                                    .padding(.leading,0)
-                                Spacer()
-                            }
-                            ScrollView(.horizontal, showsIndicators: false){
-                                LazyHStack{
-                                    ForEach(viewModel.getBook(forCategories: category)) { book in
-                                        EachBookHomeView(book: book)
-                                            .frame(width:100, height:200)
-                                            .padding(.horizontal,20)
-                                    }
-                                }
-                            }
-                            .padding(.top,-5)
-                        }.font(.custom("Cocogoose", size: 16))
-                      
-                
-                    }
+                    HomeStackView(viewModel: viewModel, showBookDetail: $showBookDetail)
                 }
+            }
+            
+            if (showBookDetail != nil){
+                BookDetailView(book: showBookDetail!,showBookDetail: $showBookDetail)
+                    .animation(.easeIn)
+                    .transition(.opacity)
             }
         }
         .foregroundColor(.white)
@@ -77,7 +63,9 @@ struct TopTabBar: View {
             Spacer()
             Text("Profile")
             
-        }.background(Color("MainColor")).padding(.leading,20)
+        }.padding(.leading,20)
         .padding(.trailing,20)
     }
 }
+
+

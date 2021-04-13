@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     var book : Book
+    @Binding var showBookDetail : Book?
     var body: some View {
         ZStack{
             Color("SecondaryColor")
@@ -16,7 +17,7 @@ struct BookDetailView: View {
             VStack{
                 HStack{
                     Button(action: {
-                        
+                        showBookDetail = nil
                     }, label: {
                             Image(systemName: "arrow.left.circle.fill")
                                 .foregroundColor(Color("SecondaryColor"))
@@ -29,7 +30,7 @@ struct BookDetailView: View {
                 //Content
                 ScrollView(showsIndicators:false){
                     VStack{
-                        TopBookInfoView(book:examBook3)
+                        TopBookInfoView(book:book)
                         CustomTabSwitcher(tabs: [BookTab.chapter,BookTab.more],book: book)
                            
                     }.padding(.horizontal,5)
@@ -62,8 +63,8 @@ struct TopBookInfoView: View {
                         .font(.custom("Lato-black", size: 24))
                         .padding(.bottom,2)
                     Text("Genres: \(genresList)")
-                    Text("Author: \(book.author)")
-                    Text("Overview: \(book.overview)")
+                    Text("Author: \(book.author ?? "")")
+                    Text("Overview: \(book.overview ?? "")")
                 }
                 .foregroundColor(.white)
                 .font(.custom("Lato-Bold", size: 16))
@@ -82,7 +83,7 @@ struct TopBookInfoView: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(book: examBook3)
+        BookDetailView(book: examBook3, showBookDetail: .constant(nil))
     }
 }
 

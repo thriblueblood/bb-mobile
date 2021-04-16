@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct HomeStackView: View {
+    
     var viewModel : HomeViewModel
     @Binding var showBookDetail:Book?
+    
     var body: some View {
         ForEach(viewModel.allCategories, id:\.self) { category in
             VStack{

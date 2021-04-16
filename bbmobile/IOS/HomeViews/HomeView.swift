@@ -21,8 +21,7 @@ struct HomeView: View {
                 //Main Vstack
                 LazyVStack { //load only the view that user see for performance
                     TopTabBar()
-                        
-                
+
                     PreviewHomeView(book: examBook5)
                         .frame(width:UIScreen.main.bounds.width)
                         .padding(.top,-100)

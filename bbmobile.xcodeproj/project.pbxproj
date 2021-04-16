@@ -28,6 +28,8 @@
 		FF13E822262598E800DD34E5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E821262598E700DD34E5 /* SearchView.swift */; };
 		FF13E8272625BB3D00DD34E5 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8262625BB3D00DD34E5 /* SearchBar.swift */; };
 		FF13E8342625C7CE00DD34E5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */; };
+		FF13E83C262603CD00DD34E5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */; };
+		FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8402626099400DD34E5 /* GenerateBooks.swift */; };
 		FFC669F626205A100033C63C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC669F526205A100033C63C /* Book.swift */; };
 		FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0226205A870033C63C /* EachBookHomeView.swift */; };
 		FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0A26205CA80033C63C /* GlobalHelper.swift */; };
@@ -40,6 +42,7 @@
 		FFD50C3B26144F14005393F5 /* bbmobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C3A26144F14005393F5 /* bbmobileTests.swift */; };
 		FFD50C4626144F14005393F5 /* bbmobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C4526144F14005393F5 /* bbmobileUITests.swift */; };
 		FFE12DBD261F39AF00EC63F0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */; };
+		FFF6EBBB2629A0EE003B6FCA /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF6EBBA2629A0EE003B6FCA /* SearchResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,8 @@
 		FF13E821262598E700DD34E5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		FF13E8262625BB3D00DD34E5 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		FF13E8402626099400DD34E5 /* GenerateBooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateBooks.swift; sourceTree = "<group>"; };
 		FFC669F526205A100033C63C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		FFC66A0226205A870033C63C /* EachBookHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachBookHomeView.swift; sourceTree = "<group>"; };
 		FFC66A0A26205CA80033C63C /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 		FFD50C4526144F14005393F5 /* bbmobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bbmobileUITests.swift; sourceTree = "<group>"; };
 		FFD50C4726144F14005393F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFE12DBC261F39AF00EC63F0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		FFF6EBBA2629A0EE003B6FCA /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,7 @@
 		FF13E7E82623239500DD34E5 /* ResourceFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FF13E8402626099400DD34E5 /* GenerateBooks.swift */,
 				FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */,
 				FFC66A0A26205CA80033C63C /* GlobalHelper.swift */,
 			);
@@ -223,6 +230,8 @@
 			children = (
 				FF13E821262598E700DD34E5 /* SearchView.swift */,
 				FF13E8262625BB3D00DD34E5 /* SearchBar.swift */,
+				FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */,
+				FFF6EBBA2629A0EE003B6FCA /* SearchResultView.swift */,
 			);
 			path = SearchViews;
 			sourceTree = "<group>";
@@ -561,14 +570,17 @@
 				FF13E8142624968800DD34E5 /* EpisodeImgView.swift in Sources */,
 				FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */,
 				FF13E7FB26243E0B00DD34E5 /* Episode.swift in Sources */,
+				FF13E83C262603CD00DD34E5 /* SearchViewModel.swift in Sources */,
 				FF13E8272625BB3D00DD34E5 /* SearchBar.swift in Sources */,
 				FFC66A1326205EA10033C63C /* HomeView.swift in Sources */,
 				FF13E8342625C7CE00DD34E5 /* ActivityIndicator.swift in Sources */,
 				FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */,
 				FF13E81C26258BFD00DD34E5 /* HomeStackView.swift in Sources */,
 				FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */,
+				FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */,
 				FF13E7E126231D2000DD34E5 /* BookDetailView.swift in Sources */,
 				FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */,
+				FFF6EBBB2629A0EE003B6FCA /* SearchResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

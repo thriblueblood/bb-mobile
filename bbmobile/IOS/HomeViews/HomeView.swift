@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     var viewModel = HomeViewModel()
     @State private var showBookDetail : Book? = nil
+    @State private var showAccountView : Bool = false
+    @Binding var goToHome : Bool
     
     var body: some View {
         ZStack{
@@ -20,7 +22,7 @@ struct HomeView: View {
             ScrollView(showsIndicators:false) {
                 //Main Vstack
                 LazyVStack { //load only the view that user see for performance
-                    TopTabBar()
+                    TopTabBar(showAccountView: $showAccountView)
 
                     PreviewHomeView(book: examBook5)
                         .frame(width:UIScreen.main.bounds.width)
@@ -35,7 +37,12 @@ struct HomeView: View {
                     .animation(.easeIn)
                     .transition(.opacity)
             }
+            
+            if(showAccountView){
+                AccountView(showAccountView: $showAccountView, goToHome: $goToHome)
+            }
         }
+        .navigationBarHidden(true)
         .foregroundColor(.white)
 //        .font(.custom("Cocogoose", size: 16))
     }
@@ -43,15 +50,16 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(goToHome: .constant(true))
     }
 }
 
 struct TopTabBar: View {
+    @Binding var showAccountView : Bool
     var body: some View {
         HStack{
             Button(action: {
-
+                showAccountView = true
             }, label: {
                 Image("logo")
                     .resizable()
@@ -60,7 +68,13 @@ struct TopTabBar: View {
             })
             
             Spacer()
-            Text("Profile")
+            Button(action: {
+                showAccountView = true
+            }, label: {
+                Circle()
+                    .frame(width:50)
+            })
+       
             
         }.padding(.leading,20)
         .padding(.trailing,20)

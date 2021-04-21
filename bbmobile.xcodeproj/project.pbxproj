@@ -30,6 +30,7 @@
 		FF13E8342625C7CE00DD34E5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */; };
 		FF13E83C262603CD00DD34E5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */; };
 		FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8402626099400DD34E5 /* GenerateBooks.swift */; };
+		FF58C4662630405C00FC41EB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF58C4652630405C00FC41EB /* AccountView.swift */; };
 		FFC669F626205A100033C63C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC669F526205A100033C63C /* Book.swift */; };
 		FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0226205A870033C63C /* EachBookHomeView.swift */; };
 		FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0A26205CA80033C63C /* GlobalHelper.swift */; };
@@ -92,6 +93,7 @@
 		FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		FF13E8402626099400DD34E5 /* GenerateBooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateBooks.swift; sourceTree = "<group>"; };
+		FF58C4652630405C00FC41EB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		FFC669F526205A100033C63C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		FFC66A0226205A870033C63C /* EachBookHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachBookHomeView.swift; sourceTree = "<group>"; };
 		FFC66A0A26205CA80033C63C /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
@@ -236,9 +238,18 @@
 			path = SearchViews;
 			sourceTree = "<group>";
 		};
+		FF58C46A2630406B00FC41EB /* AccountViews */ = {
+			isa = PBXGroup;
+			children = (
+				FF58C4652630405C00FC41EB /* AccountView.swift */,
+			);
+			path = AccountViews;
+			sourceTree = "<group>";
+		};
 		FFC669F4262059DD0033C63C /* IOS */ = {
 			isa = PBXGroup;
 			children = (
+				FF58C46A2630406B00FC41EB /* AccountViews */,
 				FF13E820262598CD00DD34E5 /* SearchViews */,
 				FF13E7EA262323DB00DD34E5 /* BookDetailViews */,
 				FF13E7E9262323C200DD34E5 /* LoginViews */,
@@ -580,6 +591,7 @@
 				FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */,
 				FF13E7E126231D2000DD34E5 /* BookDetailView.swift in Sources */,
 				FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */,
+				FF58C4662630405C00FC41EB /* AccountView.swift in Sources */,
 				FFF6EBBB2629A0EE003B6FCA /* SearchResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

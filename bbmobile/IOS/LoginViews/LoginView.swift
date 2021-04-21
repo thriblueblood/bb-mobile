@@ -11,7 +11,8 @@ struct LoginView: View {
     
     @State var email = ""
     @State var password = ""
-    @Binding var show: Bool
+    @State var goToHome : Bool = false
+    @State var goToRegister : Bool = false
     
     var body: some View {
         
@@ -37,7 +38,7 @@ struct LoginView: View {
                     .padding(.top,20)
                 
                 Button(action: {
-                    
+                    goToHome = true
                 }, label: {
                     Text("Login")
                         .font(.custom("Cocogoose", size: 16))
@@ -50,23 +51,31 @@ struct LoginView: View {
                 .padding(.top,20)
                 
                 Button(action: {
-                    self.show.toggle()
+                    goToRegister = true
                 }, label: {
                     Text("Don't have an account?")
                         .font(.custom("Cocogoose", size: 16))
                         .foregroundColor(Color("SecondaryColor"))
                 })
             }.padding(.horizontal,25)
-        }.navigationBarHidden(true)
+            
+            if(goToHome){
+                ContentView(goToHome: $goToHome)
+                    
+                    .animation(.easeInOut)
+                    .transition(.opacity)
+            }
+            if(goToRegister){
+                RegisterView(goToRegister: $goToRegister)
+            }
+        }
+        
     }
         
 }
 
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            LoginView(show: true)
-//            LoginView(show: false)
-//               }
-//    }
-//}
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}

@@ -19,20 +19,7 @@ struct bbmobileApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//            NavigationView{
-//                ZStack{
-//                    NavigationLink(
-//                        destination: RegisterView(show: self.$show),
-//                        isActive: $show){
-//                        Text("")
-//                    }.hidden()
-//                    LoginView(show:self.$show)
-//                }
-//            }
-//            .navigationBarTitle("")
-//            .navigationBarHidden(true)
-//            .navigationBarBackButtonHidden(true)
+            LoginView()
 
         }
     }

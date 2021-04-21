@@ -11,7 +11,7 @@ struct RegisterView: View {
     @State var email = ""
     @State var password = ""
     @State var rePassword = ""
-    @Binding var show : Bool
+    @Binding var goToRegister : Bool
     
     var body: some View {
         ZStack(alignment:.topLeading){
@@ -41,7 +41,7 @@ struct RegisterView: View {
                         .padding(.top,20)
                     
                     Button(action: {
-    //                    self.show.toggle()
+                       goToRegister = false
                     }, label: {
                         Text("Register")
                             .font(.custom("Cocogoose", size: 16))
@@ -55,19 +55,19 @@ struct RegisterView: View {
 
                 }.padding(.horizontal,25).padding(.top,40)
             Button(action: {
-                self.show.toggle()
+                goToRegister = false
             }, label: {
                 Image(systemName: "chevron.left")
                     .foregroundColor(Color("SecondaryColor"))
                     .font(.system(size: 24))
-            }).padding(2)
+            }).padding(2).padding(.leading)
         }.navigationBarHidden(true)
     }
 }
 
 
-//struct RegisterView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RegisterView()
-//    }
-//}
+struct RegisterView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterView(goToRegister: .constant(true))
+    }
+}

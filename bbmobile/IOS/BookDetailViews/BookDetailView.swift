@@ -20,11 +20,12 @@ struct BookDetailView: View {
                         showBookDetail = nil
                     }, label: {
                             Image(systemName: "arrow.left.circle.fill")
-                                .foregroundColor(Color("SecondaryColor"))
+                                .foregroundColor(Color("MainColor"))
                                 .font(.system(size:32))
+                                .padding(.leading)
                     })
                     Spacer()
-                }.background(Color("MainColor"))
+                }
                 Spacer()
                 
                 //Content

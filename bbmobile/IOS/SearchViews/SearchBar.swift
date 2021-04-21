@@ -15,7 +15,7 @@ struct SearchBar: View {
     var body: some View {
         ZStack(alignment:.leading) {
             Color("CustomBlack")
-                .frame(width:270,height:36)
+                .frame(width:270,height:38)
                 .cornerRadius(8)
             HStack{
                 Image(systemName: "magnifyingglass")

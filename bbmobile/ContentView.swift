@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    init(){
+    @Binding var goToHome : Bool
+    init(goToHome : Binding<Bool>){
         UITabBar.appearance().barTintColor = UIColor(Color("MainColor"))
         UITabBar.appearance().isTranslucent = false
-    }
-    
-    var body: some View {
+        self._goToHome = goToHome
         
+    }
+    var body: some View {
 
         TabView{
-            HomeView()
+            HomeView( goToHome: $goToHome)
                 .tabItem {
                     Image(systemName: "house.fill")
                 }.tag(0)
@@ -35,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(goToHome: .constant(true))
     }
 }

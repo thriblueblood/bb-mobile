@@ -12,23 +12,15 @@ struct CustomButton: View {
     var text : String
     
     var body: some View {
-        Button(action: {
-            
-        }, label: {
             HStack{
                 Spacer()
                 Image(systemName: img)
-                    
-                
                 Text(text)
                     .font(.custom("Cocogoose", size: 16))
                 Spacer()
             }
             .padding(.all,10)
             .cornerRadius(7)
-            
-          
-        })
     }
 }
 

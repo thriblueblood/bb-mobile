@@ -6,25 +6,24 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeView: View {
     var viewModel = HomeViewModel()
     @State private var showBookDetail : Book? = nil
     @State private var showAccountView : Bool = false
     @Binding var goToHome : Bool
-    
     var body: some View {
         ZStack{
             Color("SecondaryColor")
                 .edgesIgnoringSafeArea(.all)
             
-            
             ScrollView(showsIndicators:false) {
                 //Main Vstack
                 LazyVStack { //load only the view that user see for performance
                     TopTabBar(showAccountView: $showAccountView)
-
-                    PreviewHomeView(book: examBook5)
+                    
+                    PreviewHomeView(book: examBook3, showBookDetail: $showBookDetail)
                         .frame(width:UIScreen.main.bounds.width)
                         .padding(.top,-100)
                         .zIndex(-1)
@@ -32,19 +31,19 @@ struct HomeView: View {
                 }
             }
             
+            
             if (showBookDetail != nil){
                 BookDetailView(book: showBookDetail!,showBookDetail: $showBookDetail)
-                    .animation(.easeIn)
-                    .transition(.opacity)
+//                    .animation(.easeIn)
+//                    .transition(.opacity)
             }
             
             if(showAccountView){
                 AccountView(showAccountView: $showAccountView, goToHome: $goToHome)
             }
         }
-        .navigationBarHidden(true)
         .foregroundColor(.white)
-//        .font(.custom("Cocogoose", size: 16))
+        //        .font(.custom("Cocogoose", size: 16))
     }
 }
 
@@ -74,11 +73,13 @@ struct TopTabBar: View {
                 Circle()
                     .frame(width:50)
             })
-       
+            
             
         }.padding(.leading,20)
         .padding(.trailing,20)
     }
 }
+
+
 
 

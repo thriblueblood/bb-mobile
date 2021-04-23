@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 let examBook1 = Book(id:UUID().uuidString, name:"Attack on Titan Vol.19", URL: URL(string:"https://i.pinimg.com/originals/1e/86/92/1e86928509e50979ffe592444dadb987.jpg")!,
                      category: ["Action fiction","Dark Fantasy"],author:"Hajime Isayama",overview:"A century ago, the grotesque giants known as Titans appeared and consumed all but a few thousand humans. The survivors took refuge behind giant walls. Today, the threat of the Titans is a distant memory, and a boy named Eren yearns to explore the world beyond Wall Maria. But what began as a childish dream will become an all-too-real nightmare when the Titans return and humanity is once again on the brink of extinction ? ",episode:[examEpisode1,examEpisode2], moreLikeThis: [examBook5,examBook6])

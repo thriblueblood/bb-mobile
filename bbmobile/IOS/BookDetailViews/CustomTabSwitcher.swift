@@ -43,7 +43,7 @@ struct CustomTabSwitcher: View {
             case .chapter :
                 ChapterView(episode:book.episode ?? [])
             case .more :
-                MoreLikeThis(book:book.moreLikeThis)
+                MoreLikeThis(book:book.moreLikeThis ?? [])
             }
         }
     }

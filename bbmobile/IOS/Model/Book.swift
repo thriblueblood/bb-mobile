@@ -18,7 +18,7 @@ struct Book : Identifiable {
     var numberOfEpisode : Int?
     var episode : [Episode]?
     
-    var moreLikeThis : [Book]
+    var moreLikeThis : [Book]?
     
     var numberOfEpisodeDisplay : String{
         if let n = numberOfEpisode{

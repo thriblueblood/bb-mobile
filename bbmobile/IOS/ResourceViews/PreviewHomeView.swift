@@ -11,6 +11,7 @@ import Kingfisher
 struct PreviewHomeView: View {
     
     var book : Book
+    @Binding var showBookDetail:Book?
     
     public func isCateLast(cate : String)-> Bool {
         let count = book.category.count
@@ -55,11 +56,16 @@ struct PreviewHomeView: View {
                     HStack{
                         Spacer()
                         MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false)
-                        CustomButton(img: "book", text: "Read now")
-                            .background(Color("MainColor"))
-                            .foregroundColor(Color("SecondaryColor"))
-                            .frame(width:155)
-                            .padding(.leading,10)
+                        Button(action: {
+                            showBookDetail = book
+                        }, label: {
+                            CustomButton(img: "book", text: "Read now")
+                                .background(Color("MainColor"))
+                                .foregroundColor(Color("SecondaryColor"))
+                                .frame(width:155)
+                                .padding(.leading,10)
+                        })
+                            
                         Spacer()
                     }.padding(.top,-70)
                 }
@@ -77,6 +83,6 @@ struct PreviewHomeView: View {
 
 struct PreviewHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewHomeView(book: examBook1)
+        PreviewHomeView(book: examBook4, showBookDetail: .constant(examBook3))
     }
 }

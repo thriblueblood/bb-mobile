@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct HomeView: View {
-    var viewModel = HomeViewModel()
+    @ObservedObject var viewModel = HomeViewModel()
     @State private var showBookDetail : Book? = nil
     @State private var showAccountView : Bool = false
     @Binding var goToHome : Bool
@@ -17,29 +17,30 @@ struct HomeView: View {
         ZStack{
             Color("SecondaryColor")
                 .edgesIgnoringSafeArea(.all)
-            
-            ScrollView(showsIndicators:false) {
-                //Main Vstack
-                LazyVStack { //load only the view that user see for performance
-                    TopTabBar(showAccountView: $showAccountView)
-                    
-                    PreviewHomeView(book: examBook3, showBookDetail: $showBookDetail)
-                        .frame(width:UIScreen.main.bounds.width)
-                        .padding(.top,-100)
-                        .zIndex(-1)
-                    HomeStackView(viewModel: viewModel, showBookDetail: $showBookDetail)
+            if viewModel.dataIsLoaded{
+                ScrollView(showsIndicators:false) {
+                    //Main Vstack
+                    LazyVStack { //load only the view that user see for performance
+                        TopTabBar(showAccountView: $showAccountView)
+                        
+                        PreviewHomeView(book: viewModel.bookData.shuffled()[0], showBookDetail: $showBookDetail)
+                            .frame(width:UIScreen.main.bounds.width)
+                            .padding(.top,-100)
+                            .zIndex(-1)
+                        HomeStackView(viewModel: viewModel, showBookDetail: $showBookDetail)
+                    }
                 }
-            }
-            
-            
-            if (showBookDetail != nil){
-                BookDetailView(book: showBookDetail!,showBookDetail: $showBookDetail)
-//                    .animation(.easeIn)
-//                    .transition(.opacity)
-            }
-            
-            if(showAccountView){
-                AccountView(showAccountView: $showAccountView, goToHome: $goToHome)
+                
+                
+                if (showBookDetail != nil){
+                    BookDetailView(book: showBookDetail!,showBookDetail: $showBookDetail)
+                    //                    .animation(.easeIn)
+                    //                    .transition(.opacity)
+                }
+                
+                if(showAccountView){
+                    AccountView(showAccountView: $showAccountView, goToHome: $goToHome)
+                }
             }
         }
         .foregroundColor(.white)
@@ -79,7 +80,3 @@ struct TopTabBar: View {
         .padding(.trailing,20)
     }
 }
-
-
-
-

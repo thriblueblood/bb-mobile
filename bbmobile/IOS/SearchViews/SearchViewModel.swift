@@ -12,11 +12,12 @@ class SearchViewModel : ObservableObject {
     @Published var viewState: ViewState = .ready
     @Published var searchResult : [Book] = []
     @Published var isShowExplore : Bool = true
-    
+    var viewModel = HomeViewModel()
+
     public func updateSearchText(string:String){
         setState(state: .loading)
         getSearchResult(string: string)
-        
+
         if string.count > 0 {
             isShowExplore = false
             getSearchResult(string: string)
@@ -25,22 +26,22 @@ class SearchViewModel : ObservableObject {
             isShowExplore=true
         }
     }
-    
+
     private func getSearchResult(string : String){
-        let haveResult = Int.random(in:0...3)
-        
+        let searchResult = viewModel.bookData.filter({$0.name.lowercased().contains(string.lowercased())})
+
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            if haveResult == 0 {
+            if searchResult.count == 0 {
                 self.searchResult = []
                 self.setState(state: .empty)
             }else{
-                let books = generateBooks(20)
+                let books = searchResult
                 self.searchResult = books
                 self.setState(state: .ready)
             }
         }
     }
-    
+
     private func setState(state:ViewState){
         DispatchQueue.main.async {
             self.viewState = state

@@ -9,14 +9,38 @@ import SwiftUI
 import Kingfisher
 
 struct ChapterView: View {
+    var book : Book
     var episode : [Episode]
     var body: some View {
-        VStack{
-            KFImage(URL(string: "https://firebasestorage.googleapis.com/v0/b/bb-mobile-2fa59.appspot.com/o/my_hero_277%233.png?alt=media&token=ee891ced-6304-40c9-acdc-988aa7e37e1b")!)
-                .resizable()
-                .scaledToFit()
-                .padding()
+        
+            VStack{
+                ForEach(book.pages, id: \.self){ pages in
+                    KFImage(URL(string:pages))
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                        .padding(.bottom,2)
+                }
         }
+            
+//        VStack{
+//            ForEach(book.pages, id: \.self){ pages in
+//                KFImage(URL(string:"https://firebasestorage.googleapis.com/v0/b/bb-mobile-2fa59.appspot.com/o/my_hero_277%231.png?alt=media&token=cd8f3de4-0e63-41bb-b221-ee2412f7a26f"))
+//                    .resizable()
+//                    .scaledToFit()
+//                    .padding()
+//            KFImage(URL(string:"https://firebasestorage.googleapis.com/v0/b/bb-mobile-2fa59.appspot.com/o/my_hero_277%231.png?alt=media&token=cd8f3de4-0e63-41bb-b221-ee2412f7a26f"))
+//                .resizable()
+//                .scaledToFit()
+//                .padding()
+//            KFImage(URL(string:"https://firebasestorage.googleapis.com/v0/b/bb-mobile-2fa59.appspot.com/o/my_hero_277%231.png?alt=media&token=cd8f3de4-0e63-41bb-b221-ee2412f7a26f"))
+//                .resizable()
+//                .scaledToFit()
+//                .padding()
+                
+//                    Text("\(pages)")
+//            }
+        
 //        HStack {
 //            VStack(alignment:.leading) {
 //                    ForEach(episode) { e in
@@ -52,7 +76,7 @@ struct ChapterView_Previews: PreviewProvider {
         ZStack{
             Color("SecondaryColor")
                 .edgesIgnoringSafeArea(.all)
-            ChapterView(episode: [examEpisode1,examEpisode2])
+            ChapterView(book: examBook1, episode: [examEpisode1,examEpisode2])
         }
         
     }

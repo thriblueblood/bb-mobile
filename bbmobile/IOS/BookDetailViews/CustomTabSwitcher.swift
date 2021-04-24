@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
-
+import Firebase
 struct CustomTabSwitcher: View {
     @State private var currentTabIndex : BookTab = .chapter
     var tabs : [BookTab]
     var book : Book
+    @ObservedObject var viewModel = BookDetailViewModel()
+
     
     func flexTabWidth(tabs : BookTab)-> CGFloat{
         let string = tabs.rawValue
         return string.widthOfString(usingFont: .systemFont(ofSize: 16))
         
     }
-    
     var body: some View {
         VStack {
             HStack(spacing:10){
@@ -40,8 +41,17 @@ struct CustomTabSwitcher: View {
                 Spacer()
             }
             switch currentTabIndex{
+            
             case .chapter :
-                ChapterView(episode:book.episode ?? [])
+
+                if viewModel.userStatus{
+                    ChapterView(book:book, episode:book.episode ?? [])
+                        .padding(.top)
+                }
+                else{
+                    LockedView()
+                }
+                
             case .more :
                 MoreLikeThis(book:book.moreLikeThis ?? [])
             }
@@ -54,13 +64,13 @@ enum BookTab : String{
     case more = "MORE LIKE THIS"
 }
 
-struct CustomTabSwitcher_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack{
-            Color("SecondaryColor")
-                .edgesIgnoringSafeArea(.all)
-            CustomTabSwitcher(tabs: [BookTab.chapter,BookTab.more],book:examBook2)
-        }
-      
-    }
-}
+//struct CustomTabSwitcher_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ZStack{
+//            Color("SecondaryColor")
+//                .edgesIgnoringSafeArea(.all)
+//            CustomTabSwitcher(tabs: [BookTab.chapter,BookTab.more],book:examBook2)
+//        }
+//      
+//    }
+//}

@@ -1,10 +1,3 @@
-//
-//  SearchBar.swift
-//  bbmobile
-//
-//  Created by Thirayut Sriphochang on 13/4/2564 BE.
-//
-
 import SwiftUI
 
 struct SearchBar: View {

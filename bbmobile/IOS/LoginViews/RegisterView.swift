@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct RegisterView: View {
+//    var loginView: LoginView
     @State var email = ""
     @State var password = ""
     @State var rePassword = ""
     @Binding var goToRegister : Bool
+//    @Published var user: User
     
     var body: some View {
         ZStack(alignment:.topLeading){
@@ -41,6 +44,7 @@ struct RegisterView: View {
                         .padding(.top,20)
                     
                     Button(action: {
+                        self.register()
                        goToRegister = false
                     }, label: {
                         Text("Register")
@@ -63,11 +67,37 @@ struct RegisterView: View {
             }).padding(2).padding(.leading)
         }.navigationBarHidden(true)
     }
-}
-
-
-struct RegisterView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterView(goToRegister: .constant(true))
+    func register(){
+        
+        Auth.auth().createUser(withEmail: self.email, password: self.password) { (res, err) in
+            
+            if let err = err{
+                            print(err.localizedDescription)
+                        }
+                        else{
+                            print("success")
+                            let db = Firestore.firestore()
+                            
+                            db.collection("users").document("\(self.email)").setData([
+                                "id": "",
+                                "email": self.email,
+                                "password": self.password,
+                                "subscribe": false
+                            ])
+                            
+                                
+                            
+                        }
+        }
+        
     }
+    
 }
+
+
+
+//struct RegisterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RegisterView(goToRegister: .constant(true))
+//    }
+//}

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BookDetailView: View {
     var book : Book
@@ -19,10 +20,10 @@ struct BookDetailView: View {
                     Button(action: {
                         showBookDetail = nil
                     }, label: {
-                            Image(systemName: "arrow.left.circle.fill")
-                                .foregroundColor(Color("MainColor"))
-                                .font(.system(size:32))
-                                .padding(.leading)
+                        Image(systemName: "arrow.left.circle.fill")
+                            .foregroundColor(Color("MainColor"))
+                            .font(.system(size:32))
+                            .padding(.leading)
                     })
                     Spacer()
                 }
@@ -33,7 +34,7 @@ struct BookDetailView: View {
                     VStack{
                         TopBookInfoView(book:book)
                         CustomTabSwitcher(tabs: [BookTab.chapter,BookTab.more],book: book)
-                           
+                        
                     }.padding(.horizontal,5)
                 }
             }
@@ -54,8 +55,9 @@ struct TopBookInfoView: View {
     
     var body: some View {
         VStack{
-            EachBookHomeView(book:book)
-                .frame(width:UIScreen.main.bounds.width/2.5)
+            KFImage(book.URL)
+                .resizable()
+                .frame(width:UIScreen.main.bounds.width/2,height:UIScreen.main.bounds.height/3)
                 .padding(.bottom,4)
             HStack{
                 VStack(alignment:.leading){
@@ -71,13 +73,13 @@ struct TopBookInfoView: View {
                 .font(.custom("Lato-Bold", size: 16))
                 Spacer()
             }
-                CustomButton(img: "book.fill", text: "Read now")
-                    .foregroundColor(Color("SecondaryColor"))
-                    .background(Color("MainColor"))
-                    .padding(.top,5)
-                CustomButton(img: "bookmark.fill", text: "Add to my list")
-                    .foregroundColor(Color("CustomWhite"))
-                    .background(Color("CustomBlack"))
+            CustomButton(img: "book.fill", text: "Read now")
+                .foregroundColor(Color("SecondaryColor"))
+                .background(Color("MainColor"))
+                .padding(.top,5)
+            CustomButton(img: "bookmark.fill", text: "Add to my list")
+                .foregroundColor(Color("CustomWhite"))
+                .background(Color("CustomBlack"))
         }
     }
 }

@@ -11,6 +11,7 @@ struct SearchView: View {
     @ObservedObject var viewModel = SearchViewModel()
     @State private var text : String = ""
     @State private var showBookDetail : Book? = nil
+    
     var body: some View {
         
         let searchTextBinding = Binding{
@@ -67,3 +68,8 @@ struct SearchView_Previews: PreviewProvider {
         SearchView()
     }
 }
+
+
+
+
+

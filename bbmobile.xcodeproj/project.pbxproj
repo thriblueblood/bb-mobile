@@ -10,6 +10,7 @@
 		53EA920E345632F2C7204031 /* Pods_bbmobile_bbmobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7226FCDF9C5305754EEB6F73 /* Pods_bbmobile_bbmobileUITests.framework */; };
 		81B163EE2634927800F1CE5D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B163ED2634927800F1CE5D /* RegisterViewModel.swift */; };
 		81B163F92634ABB600F1CE5D /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B163F82634ABB600F1CE5D /* BookDetailViewModel.swift */; };
+		81B163FE2634B65A00F1CE5D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B163FD2634B65A00F1CE5D /* AccountViewModel.swift */; };
 		A67318EE55E2105D51AA1D9B /* Pods_bbmobileTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F2708819183E572D3C4EC5 /* Pods_bbmobileTests.framework */; };
 		E494EC422E5DF4E32785FB1C /* Pods_bbmobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACFFD3C67BCC6E395372826 /* Pods_bbmobile.framework */; };
 		FF0C0E62261C7F4B0006FADD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C0E61261C7F4A0006FADD /* LoginView.swift */; };
@@ -72,6 +73,7 @@
 		7226FCDF9C5305754EEB6F73 /* Pods_bbmobile_bbmobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bbmobile_bbmobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B163ED2634927800F1CE5D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		81B163F82634ABB600F1CE5D /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
+		81B163FD2634B65A00F1CE5D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		AD22D78EA5379086FF82D2F4 /* Pods-bbmobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bbmobile.release.xcconfig"; path = "Target Support Files/Pods-bbmobile/Pods-bbmobile.release.xcconfig"; sourceTree = "<group>"; };
 		C5DA444E5FE41B33927B8EF2 /* Pods-bbmobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bbmobileTests.debug.xcconfig"; path = "Target Support Files/Pods-bbmobileTests/Pods-bbmobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DACFFD3C67BCC6E395372826 /* Pods_bbmobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bbmobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				FF58C4652630405C00FC41EB /* AccountView.swift */,
+				81B163FD2634B65A00F1CE5D /* AccountViewModel.swift */,
 			);
 			path = AccountViews;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */,
 				FF13E81C26258BFD00DD34E5 /* HomeStackView.swift in Sources */,
 				FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */,
+				81B163FE2634B65A00F1CE5D /* AccountViewModel.swift in Sources */,
 				FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */,
 				81B163EE2634927800F1CE5D /* RegisterViewModel.swift in Sources */,
 				FF13E7E126231D2000DD34E5 /* BookDetailView.swift in Sources */,

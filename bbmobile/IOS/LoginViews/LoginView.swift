@@ -78,7 +78,6 @@ struct LoginView: View {
         }
     }
     func verify(){
-        let userID = Auth.auth().currentUser!.uid
         let db = Firestore.firestore()
         if self.email != "" && self.password != ""{
             Auth.auth().signIn(withEmail: self.email, password: self.password) { (res, err) in
@@ -89,6 +88,7 @@ struct LoginView: View {
                 else{
                     //                    print("success")
                     //                    print(userID)
+                    let userID = Auth.auth().currentUser!.uid
                     db.collection("users").document("\(self.email)").updateData([
                         "id": "\(userID)"
                     ])

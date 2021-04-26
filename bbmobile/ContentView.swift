@@ -26,7 +26,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }.tag(1)
-            Text("BookMark")
+            MyListView(books: [examBook4])
                 .tabItem {
                     Image(systemName: "bookmark.fill")
                 }.tag(2)

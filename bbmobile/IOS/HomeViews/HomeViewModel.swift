@@ -14,7 +14,17 @@ class HomeViewModel: ObservableObject{
     //Key Value is Category
     
     @Published var books: [String: [Book]] = [:]
+    
+    // all book data
     @Published var bookData = [Book]()
+    
+    // all book by categories
+    @Published var mangaBookData = [Book]()
+    @Published var advFictBookData = [Book]()
+    @Published var biographyBookData = [Book]()
+    @Published var darkFantBookData = [Book]()
+    
+    
     @Published var dataIsLoaded : Bool = false
     
     init(){
@@ -50,6 +60,34 @@ class HomeViewModel: ObservableObject{
                 let url = i.document.get("URL") as! String
                 let pages = i.document.get("pages") as! [String]
                 let categories = i.document.get("category") as! [String]
+                let mangaCate = "Manga"
+                let advFictCate = "Adventure Fiction"
+                let bioCate = "Biography"
+                let darkFantCate = "Dark Fantasy"
+                var currentIndex = 0
+//                print("all categories:", categories)
+                for cate in categories{
+                    if cate == mangaCate{
+//                        print("Found \(cate) for index \(currentIndex)")
+                        self.mangaBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                    }
+                    else if cate == advFictCate{
+//                        print("Found \(cate) for index \(currentIndex)")
+                        self.advFictBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                    }
+                    else if cate == bioCate{
+//                        print("Found \(cate) for index \(currentIndex)")
+                        self.biographyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                    }
+                    else if cate == darkFantCate{
+//                        print("Found \(cate) for index \(currentIndex)")
+                        self.darkFantBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                    }
+                    
+                    currentIndex += 1
+                }
+                
+                    
                 self.bookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
             }
         group.leave()
@@ -71,10 +109,10 @@ class HomeViewModel: ObservableObject{
     func setBookCate(){
         DispatchQueue.main.async{
             self.books["Best of All time"] = self.bookData//keys is best of all time and value is examBook
-            self.books["Manga"] = examBooks
-            self.books["Novel"] = examBooks
-            self.books["Popular right now"] = examBooks
-            self.books["Mystery"] = examBooks
+            self.books["Manga"] = self.mangaBookData
+            self.books["Novel"] = self.biographyBookData
+            self.books["Popular right now"] = self.advFictBookData
+            self.books["Mystery"] = self.bookData
             self.dataIsLoaded = true
            
         }

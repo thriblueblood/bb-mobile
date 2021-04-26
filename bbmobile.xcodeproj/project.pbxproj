@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53EA920E345632F2C7204031 /* Pods_bbmobile_bbmobileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7226FCDF9C5305754EEB6F73 /* Pods_bbmobile_bbmobileUITests.framework */; };
+		81037A232636E41C001C8B6D /* MyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81037A222636E41C001C8B6D /* MyListView.swift */; };
+		81037A2C2636E76F001C8B6D /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81037A2B2636E76F001C8B6D /* MyListViewModel.swift */; };
 		81B163EE2634927800F1CE5D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B163ED2634927800F1CE5D /* RegisterViewModel.swift */; };
 		81B163F92634ABB600F1CE5D /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B163F82634ABB600F1CE5D /* BookDetailViewModel.swift */; };
 		81B163FE2634B65A00F1CE5D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B163FD2634B65A00F1CE5D /* AccountViewModel.swift */; };
@@ -71,6 +73,8 @@
 		6705E8C38124F417920257E0 /* Pods-bbmobile-bbmobileUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bbmobile-bbmobileUITests.release.xcconfig"; path = "Target Support Files/Pods-bbmobile-bbmobileUITests/Pods-bbmobile-bbmobileUITests.release.xcconfig"; sourceTree = "<group>"; };
 		695C1F4F8BC5765E9D2E3F7B /* Pods-bbmobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bbmobileTests.release.xcconfig"; path = "Target Support Files/Pods-bbmobileTests/Pods-bbmobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		7226FCDF9C5305754EEB6F73 /* Pods_bbmobile_bbmobileUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bbmobile_bbmobileUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81037A222636E41C001C8B6D /* MyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListView.swift; sourceTree = "<group>"; };
+		81037A2B2636E76F001C8B6D /* MyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
 		81B163ED2634927800F1CE5D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		81B163F82634ABB600F1CE5D /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		81B163FD2634B65A00F1CE5D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81037A272636E422001C8B6D /* MyListView */ = {
+			isa = PBXGroup;
+			children = (
+				81037A222636E41C001C8B6D /* MyListView.swift */,
+				81037A2B2636E76F001C8B6D /* MyListViewModel.swift */,
+			);
+			path = MyListView;
+			sourceTree = "<group>";
+		};
 		BCF2B0BEFEE0B19A8D35347F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +271,7 @@
 		FFC669F4262059DD0033C63C /* IOS */ = {
 			isa = PBXGroup;
 			children = (
+				81037A272636E422001C8B6D /* MyListView */,
 				FF58C46A2630406B00FC41EB /* AccountViews */,
 				FF13E820262598CD00DD34E5 /* SearchViews */,
 				FF13E7EA262323DB00DD34E5 /* BookDetailViews */,
@@ -600,7 +614,9 @@
 				FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */,
 				81B163FE2634B65A00F1CE5D /* AccountViewModel.swift in Sources */,
 				FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */,
+				81037A232636E41C001C8B6D /* MyListView.swift in Sources */,
 				81B163EE2634927800F1CE5D /* RegisterViewModel.swift in Sources */,
+				81037A2C2636E76F001C8B6D /* MyListViewModel.swift in Sources */,
 				FF13E7E126231D2000DD34E5 /* BookDetailView.swift in Sources */,
 				FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */,
 				FF58C4662630405C00FC41EB /* AccountView.swift in Sources */,

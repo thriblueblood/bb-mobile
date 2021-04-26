@@ -10,7 +10,7 @@ import Kingfisher
 
 struct PreviewHomeView: View {
     
-    var book : Book
+    @State var book : Book
     @Binding var showBookDetail:Book?
     
     public func isCateLast(cate : String)-> Bool {
@@ -55,7 +55,7 @@ struct PreviewHomeView: View {
                         .padding(.bottom,100)
                     HStack{
                         Spacer()
-                        MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false)
+                        MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false, book: $book)
                         Button(action: {
                             showBookDetail = book
                         }, label: {

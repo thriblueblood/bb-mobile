@@ -10,9 +10,13 @@ import SwiftUI
 struct MyListButton: View {
     var text : String
     
+    @ObservedObject var viewModel = MyListViewModel()
+    
     var activeImg : String
     var inactiveImg : String
     var isActive : Bool
+    
+    @Binding var book : Book
     
     var img : String {
         if isActive{
@@ -24,7 +28,9 @@ struct MyListButton: View {
     
     var body: some View {
         Button(action: {
-            
+            print("HELLO")
+            print(book.name)
+            viewModel.addToMyList(bookname: book.name)
         }, label: {
             VStack{
             Image(systemName: img)
@@ -39,11 +45,12 @@ struct MyListButton: View {
     }
 }
 
-struct MyListButton_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack{
-        Color(.black)
-        MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false)
-        }
-    }
-}
+//
+//struct MyListButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ZStack{
+//        Color(.black)
+//            MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false, book: )
+//        }
+//    }
+//}

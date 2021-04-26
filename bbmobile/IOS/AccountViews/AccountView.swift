@@ -12,72 +12,74 @@ struct AccountView: View {
     @Binding var goToHome : Bool
     @ObservedObject var viewModel = AccountViewModel()
     
-    
     var body: some View {
         ZStack{
             Color("SecondaryColor")
                 .edgesIgnoringSafeArea(.all)
-            VStack{
-                HStack{
-                    Button(action: {
-                        showAccountView = false
-                    }, label: {
-                        Image(systemName: "xmark.circle.fill")
+            if(!viewModel.isLoading){
+                VStack{
+                    HStack{
+                        Button(action: {
+                            showAccountView = false
+                        }, label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(Color("MainColor"))
+                        })
+                        Text("\(viewModel.getName(email: viewModel.userName))")
                             .foregroundColor(Color("MainColor"))
-                    })
-
-                    Spacer()
-                }.padding(.leading)
-                .font(.system(size: 36))
-                HStack{
-                    Button(action: {
-                        
-                        viewModel.switchStatus()
-                        
-                    }, label: {
-                        HStack{
-                            if viewModel.userStatus{
-                                Spacer()
-                                Image(systemName: "person.fill.xmark")
-                                Text("Unsubscribe")
-                                Spacer()
-                            }
-                            else{
-                                Spacer()
-                                Image(systemName: "person.fill.xmark")
-                                Text("subscribe now!")
-                                Spacer()
-                            }
+                            .font(.custom("Lato-Bold", size: 24))
+                            .padding(.leading,20)
+                        Spacer()
+                    }.padding(.leading)
+                    .font(.system(size: 36))
+                    VStack{
+                        Button(action: {
                             
-                        }
-                    })
-                    .padding()
-                    .font(.custom("Lato-Bold", size: 24))
-                    .foregroundColor(Color("MainColor"))
-                    .background(Color("CustomBlack"))
-                    .padding(.leading,5)
-                    Spacer()
-                    
-                    Button(action: {
-                        goToHome = false
-                        self.signout()
-                    }, label: {
-                        HStack{
-                            Spacer()
-                            Image(systemName: "person.fill.xmark")
-                            Text("Logout")
-                            Spacer()
-                        }
-                    })
-                    .padding()
-                    .font(.custom("Lato-Bold", size: 24))
-                    .foregroundColor(Color("MainColor"))
-                    .background(Color("CustomBlack"))
-                    .padding(.leading,5)
-                    Spacer()
-                    
+                            viewModel.switchStatus()
+                            
+                        }, label: {
+                            HStack{
+                                if viewModel.userStatus{
+                                    Spacer()
+                                    Image(systemName: "folder.fill.badge.minus")
+                                    Text("Unsubscribe")
+                                    Spacer()
+                                }
+                                else{
+                                    Spacer()
+                                    Image(systemName: "folder.fill.badge.plus")
+                                    Text("Subscribe now")
+                                    Spacer()
+                                }
+                            }
+                        })
+                        .padding()
+                        .font(.custom("Lato-Bold", size: 24))
+                        .foregroundColor(Color("MainColor"))
+                        .background(Color("CustomBlack"))
+                        .padding(.leading,5)
+                        
+                        Button(action: {
+                            goToHome = false
+                            self.signout()
+                        }, label: {
+                            HStack{
+                                Spacer()
+                                Image(systemName: "person.fill.xmark")
+                                Text("Logout")
+                                Spacer()
+                            }
+                        })
+                        .padding()
+                        .font(.custom("Lato-Bold", size: 24))
+                        .foregroundColor(Color("MainColor"))
+                        .background(Color("CustomBlack"))
+                        .padding(.leading,5)
+                        Spacer()
+                        
+                    }
+                Spacer()
                 }
-            Spacer()
             }
         }
     }

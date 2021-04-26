@@ -28,9 +28,14 @@ struct MyListButton: View {
     
     var body: some View {
         Button(action: {
-            print("HELLO")
-            print(book.name)
+            let group = DispatchGroup()
+            group.enter()
             viewModel.addToMyList(bookname: book.name)
+            group.leave()
+            group.notify(queue: DispatchQueue.global(qos: .background)){
+                viewModel.getMyListData()
+                }
+            
         }, label: {
             VStack{
             Image(systemName: img)

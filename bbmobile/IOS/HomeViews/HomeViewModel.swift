@@ -30,9 +30,7 @@ class HomeViewModel: ObservableObject{
     init(){
         loadData()
     }
-    
     public var allCategories : [String]{
-        print("Called")
         return books.keys.map({String($0)}) //return the array of string in key's books
     }
     
@@ -65,7 +63,6 @@ class HomeViewModel: ObservableObject{
                 let bioCate = "Biography"
                 let darkFantCate = "Dark Fantasy"
                 var currentIndex = 0
-//                print("all categories:", categories)
                 for cate in categories{
                     if cate == mangaCate{
 //                        print("Found \(cate) for index \(currentIndex)")
@@ -116,7 +113,7 @@ class HomeViewModel: ObservableObject{
             self.dataIsLoaded = true
            
         }
-        print("Data loaded")
+//        print("Data loaded")
     }
 
 }

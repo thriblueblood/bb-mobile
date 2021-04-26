@@ -26,16 +26,17 @@ struct LoginView: View {
                 Image("logo")
                 Text("Thousand of books are await!")
                     .padding(.top,-35)
-                    .font(.custom("Cocogoose", size: 16))
+                    .font(.custom("Lato-Bold", size: 16))
                     .foregroundColor(Color("SecondaryColor"))
                 
                 TextField("Username", text: self.$email)
                     .padding(.all)
-                    .font(.custom("Cocogoose Pro-trial", size: 16))
+                    .font(.custom("Lato-Regular", size: 16))
                     .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                     .padding(.top,20)
                 
-                TextField("Password", text: self.$password)
+                SecureField("Password", text: self.$password)
+                    .font(.custom("Lato-Regular", size: 16))
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                     .padding(.top,20)
@@ -45,7 +46,7 @@ struct LoginView: View {
                     //                    goToHome = true
                 }, label: {
                     Text("Login")
-                        .font(.custom("Cocogoose", size: 16))
+                        .font(.custom("Lato-Black", size: 16))
                         .foregroundColor(Color("MainColor"))
                         .padding(.all)
                         .frame(width: UIScreen.main.bounds.width-50)
@@ -53,19 +54,22 @@ struct LoginView: View {
                 .background(Color("SecondaryColor"))
                 .cornerRadius(10)
                 .padding(.top,20)
-                
-                Button(action: {
-                    goToRegister = true
-                }, label: {
-                    Text("Don't have an account?")
-                        .font(.custom("Cocogoose", size: 16))
+                HStack {
+                    Text("Don't have an acount?")
+                        .font(.custom("Lato-Regular", size: 16))
                         .foregroundColor(Color("SecondaryColor"))
+                    Button(action: {
+                        goToRegister = true
+                    }, label: {
+                        Text("Register now")
+                            .font(.custom("Lato-Bold", size: 16))
+                            .foregroundColor(Color("SecondaryColor"))
                 })
+                }
             }.padding(.horizontal,25)
             
             if(goToHome){
                 ContentView(goToHome: $goToHome)
-                    
                     .animation(.easeInOut)
                     .transition(.opacity)
             }

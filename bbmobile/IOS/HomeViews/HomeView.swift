@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import Kingfisher
 
 struct HomeView: View {
     @ObservedObject var viewModel = HomeViewModel()
@@ -68,13 +69,14 @@ struct TopTabBar: View {
             })
             
             Spacer()
-            Button(action: {
-                showAccountView = true
-            }, label: {
-                Circle()
-                    .frame(width:50)
-            })
-            
+                Image("profile")
+                    .resizable()
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color("MainColor"), lineWidth: 5))
+                    .frame(width:45,height: 40)
+                    .onTapGesture {
+                        showAccountView = true
+                    }
             
         }.padding(.leading,20)
         .padding(.trailing,20)

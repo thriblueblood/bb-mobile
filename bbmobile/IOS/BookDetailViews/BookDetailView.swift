@@ -33,7 +33,7 @@ struct BookDetailView: View {
                 ScrollView(showsIndicators:false){
                     VStack{
                         TopBookInfoView(book:book)
-                        CustomTabSwitcher(tabs: [BookTab.chapter,BookTab.more],book: book)
+                        CustomTabSwitcher(tabs: [BookTab.content,BookTab.more],book: book)
                         
                     }.padding(.horizontal,5)
                 }
@@ -44,7 +44,7 @@ struct BookDetailView: View {
 
 struct TopBookInfoView: View {
     var book : Book
-    @ObservedObject var viewModel = MyListViewModel()
+//    @ObservedObject var viewModel = MyListViewModel()
     var genresList : String{
         var l : String = ""
         for i in book.category {
@@ -77,11 +77,15 @@ struct TopBookInfoView: View {
                 .foregroundColor(Color("SecondaryColor"))
                 .background(Color("MainColor"))
                 .padding(.top,5)
+                .onTapGesture {
+                    print(book.URL)
+                }
             CustomButton(img: "bookmark.fill", text: "Add to my list")
                 .foregroundColor(Color("CustomWhite"))
                 .background(Color("CustomBlack"))
                 .onTapGesture {
-                    viewModel.addToMyList(bookname: book.name)
+//                    viewModel.addToMyList(bookname: book.name)
+//                    viewModel.getMyListData()
                 }
         }
     }

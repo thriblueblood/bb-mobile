@@ -23,23 +23,24 @@ struct RegisterView: View {
                 VStack{
                    
                     Text("Feel free to use our service!")
-                        .font(.custom("Cocogoose", size: 16))
+                        .font(.custom("Lato-Bold", size: 16))
                         .foregroundColor(Color("SecondaryColor"))
                     
                     TextField("Username", text: self.$email)
                         .padding(.all)
-                        .font(.custom("Cocogoose Pro-trial", size: 16))
+                        .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
-                    TextField("Password", text: self.$password)
+                    SecureField("Password", text: self.$password)
                         .padding()
+                        .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
-                    TextField("Re-Enter Passwrod", text: self.$rePassword)
+                    SecureField("Re-Enter Passwrod", text: self.$rePassword)
                         .padding(.all)
-                        .font(.custom("Cocogoose Pro-trial", size: 16))
+                        .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
@@ -48,7 +49,7 @@ struct RegisterView: View {
                        goToRegister = false
                     }, label: {
                         Text("Register")
-                            .font(.custom("Cocogoose", size: 16))
+                            .font(.custom("Lato-Black", size: 16))
                             .foregroundColor(Color("MainColor"))
                             .padding(.all)
                             .frame(width: UIScreen.main.bounds.width-50)

@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 struct CustomTabSwitcher: View {
-    @State private var currentTabIndex : BookTab = .chapter
+    @State private var currentTabIndex : BookTab = .content
     var tabs : [BookTab]
     var book : Book
     @ObservedObject var viewModel = BookDetailViewModel()
@@ -42,7 +42,7 @@ struct CustomTabSwitcher: View {
             }
             switch currentTabIndex{
             
-            case .chapter :
+            case .content :
 
                 if viewModel.userStatus{
                     ChapterView(book:book, episode:book.episode ?? [])
@@ -60,7 +60,7 @@ struct CustomTabSwitcher: View {
 }
 
 enum BookTab : String{
-    case chapter = "CHAPTER LIST"
+    case content = "CONTENT"
     case more = "MORE LIKE THIS"
 }
 

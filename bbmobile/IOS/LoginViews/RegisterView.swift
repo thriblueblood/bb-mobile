@@ -32,13 +32,13 @@ struct RegisterView: View {
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
-                    SecureField("Password", text: self.$password)
+                    TextField("Password", text: self.$password)
                         .padding()
                         .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
-                    SecureField("Re-Enter Passwrod", text: self.$rePassword)
+                    TextField("Re-Enter Passwrod", text: self.$rePassword)
                         .padding(.all)
                         .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))

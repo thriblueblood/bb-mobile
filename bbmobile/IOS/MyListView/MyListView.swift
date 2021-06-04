@@ -33,14 +33,7 @@ struct MyListView: View {
                     Spacer()
                 }.padding()
                 
-                Button(action: {
-                    print(viewModel.isLoaded)
-                }, label: {
-                    Text("Check loading...")
-                        .foregroundColor(.white)
-                })
-                
-                if viewModel.isLoaded{
+                if !viewModel.isLoading{
                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
                         LazyVGrid(columns: columns,spacing:10,content: {
                             ForEach(viewModel.myList, id: \.id){book in

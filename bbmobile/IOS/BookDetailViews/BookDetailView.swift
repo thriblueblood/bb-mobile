@@ -11,6 +11,9 @@ import Kingfisher
 struct BookDetailView: View {
     var book : Book
     @Binding var showBookDetail : Book?
+    
+
+    
     var body: some View {
         ZStack{
             Color("SecondaryColor")
@@ -45,6 +48,8 @@ struct BookDetailView: View {
 struct TopBookInfoView: View {
     var book : Book
 //    @ObservedObject var viewModel = MyListViewModel()
+    
+    
     var genresList : String{
         var l : String = ""
         for i in book.category {
@@ -52,6 +57,7 @@ struct TopBookInfoView: View {
         }
         return l
     }
+    
     
     var body: some View {
         VStack{

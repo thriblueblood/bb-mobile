@@ -53,7 +53,7 @@ class HomeViewModel: ObservableObject{
             for i in snap!.documentChanges{
                 let id = i.document.documentID
                 let name = i.document.get("title") as? String
-                let author = i.document.get("author") as! String
+                let author = i.document.get("author") as? String
                 let overview = i.document.get("overview") as! String
                 let url = i.document.get("URL") as! String
                 let pages = i.document.get("pages") as! [String]
@@ -80,7 +80,7 @@ class HomeViewModel: ObservableObject{
 //                        print("Found \(cate) for index \(currentIndex)")
                         self.darkFantBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
                     }
-                    
+
                     currentIndex += 1
                 }
                 
@@ -106,9 +106,9 @@ class HomeViewModel: ObservableObject{
     func setBookCate(){
         DispatchQueue.main.async{
             self.books["Best of All time"] = self.bookData//keys is best of all time and value is examBook
-            self.books["Manga"] = self.mangaBookData
-            self.books["Novel"] = self.biographyBookData
-            self.books["Popular right now"] = self.advFictBookData
+            self.books["Manga"] = self.bookData
+            self.books["Novel"] = self.bookData
+            self.books["Popular right now"] = self.bookData
             self.books["Mystery"] = self.bookData
             self.dataIsLoaded = true
            

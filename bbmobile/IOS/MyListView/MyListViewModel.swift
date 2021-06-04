@@ -4,7 +4,8 @@ import Firebase
 
 class MyListViewModel: ObservableObject{
     @Published var myList = [Book]()
-    @Published var isLoaded : Bool = false
+    @Published var isLoading : Bool = false
+    @Published var viewState: MyListState = .loading
     var myListInString: [String]?
     
     
@@ -31,7 +32,8 @@ class MyListViewModel: ObservableObject{
                     }
                 }
             }
-            self.isLoaded = false
+            self.setState(state: .loading)
+            print("To loading state...")
             print("Adding To my list.")
         }
     }
@@ -62,9 +64,9 @@ class MyListViewModel: ObservableObject{
     }
     
     func displayData(){
-        let group = DispatchGroup()
-        group.enter()
         if let myList = myListInString{
+            let group = DispatchGroup()
+            group.enter()
             for name in myList{
                 let db = Firestore.firestore()
                 db.collection("categories").whereField("title",isEqualTo: name).addSnapshotListener { (snap, err) in
@@ -73,7 +75,6 @@ class MyListViewModel: ObservableObject{
                         return
                     }
                     for i in snap!.documentChanges{
-                        print("NAME: ",name)
                         let id = i.document.documentID
                         let name = i.document.get("title") as? String
                         let author = i.document.get("author") as! String
@@ -82,42 +83,29 @@ class MyListViewModel: ObservableObject{
                         let pages = i.document.get("pages") as! [String]
                         let categories = i.document.get("category") as! [String]
                         self.myList.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
-                        print(self.myList)
                     }
                 }
             }
-            print(self.myList)
             group.leave()
             group.notify(queue: DispatchQueue.global(qos: .background)){
-                DispatchQueue.main.async {
-                    print("main async")
-                    self.isLoaded = true
+                self.setState(state: .ready)
                 }
-               
-                }
-
-      
+           
         }
-
+    }
+    
+    private func setState(state:MyListState){
+        DispatchQueue.main.async {
+            self.viewState = state
+            self.isLoading = state == .loading //if state is equal loading then isLoading = true
+        }
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+enum MyListState{
+    case loading
+    case ready
+}
 
 //=================================================================================//
 

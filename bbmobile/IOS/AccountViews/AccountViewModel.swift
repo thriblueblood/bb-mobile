@@ -33,30 +33,30 @@ class AccountViewModel: ObservableObject{
     
     public func getStatus(){
         let db = Firestore.firestore()
-        let userID = Auth.auth().currentUser!.uid
+        let userID = Auth.auth().currentUser?.uid
         
-        db.collection("users").whereField("id", isEqualTo: "\(userID)").getDocuments() { (document, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            }
-            else{
-                if let snapshotDocuments = document?.documents {
-                    
-                    for doc in snapshotDocuments {
-                        let data = doc.data()
-                        let postBody = data["subscribe"] as? Bool
-                        let name = data["email"] as? String
-                        
-                        self.userName = name ?? " "
-                        self.userStatus = postBody!
-                    }
-                    self.setState(state: .ready)
+        if let UserID = userID{
+            db.collection("users").whereField("id", isEqualTo: "\(UserID)").getDocuments() { (document, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
                 }
-                
-            
-                
+                else{
+                    if let snapshotDocuments = document?.documents {
+                        
+                        for doc in snapshotDocuments {
+                            let data = doc.data()
+                            let postBody = data["subscribe"] as? Bool
+                            let name = data["email"] as? String
+                            
+                            self.userName = name ?? " "
+                            self.userStatus = postBody!
+                        }
+                        self.setState(state: .ready)
+                    }
+                }
             }
         }
+
     }
    
     public func switchStatus(){
@@ -91,12 +91,7 @@ class AccountViewModel: ObservableObject{
                             print("userStatusFALSE?",self.userStatus)
                         }
                     }
-                    
-                    
                 }
-                
-            
-                
             }
         }
         

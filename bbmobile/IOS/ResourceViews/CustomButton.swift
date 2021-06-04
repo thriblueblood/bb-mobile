@@ -16,7 +16,7 @@ struct CustomButton: View {
                 Spacer()
                 Image(systemName: img)
                 Text(text)
-                    .font(.custom("Cocogoose", size: 16))
+                    .font(.custom("Lato-Bold", size: 16))
                 Spacer()
             }
             .padding(.all,10)

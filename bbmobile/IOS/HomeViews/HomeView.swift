@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var showBookDetail : Book? = nil
     @State private var showAccountView : Bool = false
     @Binding var goToHome : Bool
+    
     var body: some View {
         ZStack{
             Color("SecondaryColor")

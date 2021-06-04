@@ -41,6 +41,10 @@
 		FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0A26205CA80033C63C /* GlobalHelper.swift */; };
 		FFC66A1326205EA10033C63C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A1226205EA10033C63C /* HomeView.swift */; };
 		FFC66A1826205F1D0033C63C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A1726205F1D0033C63C /* HomeViewModel.swift */; };
+		FFD107AB266683E000A14775 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD107AA266683E000A14775 /* AdminView.swift */; };
+		FFD107B0266692B700A14775 /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD107AF266692B700A14775 /* AdminViewModel.swift */; };
+		FFD107B82667F74500A14775 /* AdminBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD107B72667F74500A14775 /* AdminBookDetailView.swift */; };
+		FFD107BD266A573E00A14775 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD107BC266A573E00A14775 /* AddBookView.swift */; };
 		FFD50C2926144F0F005393F5 /* bbmobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C2826144F0F005393F5 /* bbmobileApp.swift */; };
 		FFD50C2B26144F0F005393F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD50C2A26144F0F005393F5 /* ContentView.swift */; };
 		FFD50C2D26144F13005393F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD50C2C26144F13005393F5 /* Assets.xcassets */; };
@@ -109,6 +113,10 @@
 		FFC66A0A26205CA80033C63C /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
 		FFC66A1226205EA10033C63C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FFC66A1726205F1D0033C63C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FFD107AA266683E000A14775 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		FFD107AF266692B700A14775 /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
+		FFD107B72667F74500A14775 /* AdminBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBookDetailView.swift; sourceTree = "<group>"; };
+		FFD107BC266A573E00A14775 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		FFD50C2526144F0F005393F5 /* bbmobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bbmobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD50C2826144F0F005393F5 /* bbmobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bbmobileApp.swift; sourceTree = "<group>"; };
 		FFD50C2A26144F0F005393F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -280,6 +288,10 @@
 				FF13E7E72623237000DD34E5 /* ResourceViews */,
 				FF13E7E62623234800DD34E5 /* HomeViews */,
 				FF13E7E52623233D00DD34E5 /* Model */,
+				FFD107AA266683E000A14775 /* AdminView.swift */,
+				FFD107AF266692B700A14775 /* AdminViewModel.swift */,
+				FFD107B72667F74500A14775 /* AdminBookDetailView.swift */,
+				FFD107BC266A573E00A14775 /* AddBookView.swift */,
 			);
 			path = IOS;
 			sourceTree = "<group>";
@@ -604,9 +616,13 @@
 				FF13E8142624968800DD34E5 /* LockedView.swift in Sources */,
 				FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */,
 				FF13E7FB26243E0B00DD34E5 /* Episode.swift in Sources */,
+				FFD107BD266A573E00A14775 /* AddBookView.swift in Sources */,
+				FFD107AB266683E000A14775 /* AdminView.swift in Sources */,
 				81B163F92634ABB600F1CE5D /* BookDetailViewModel.swift in Sources */,
 				FF13E83C262603CD00DD34E5 /* SearchViewModel.swift in Sources */,
 				FF13E8272625BB3D00DD34E5 /* SearchBar.swift in Sources */,
+				FFD107B82667F74500A14775 /* AdminBookDetailView.swift in Sources */,
+				FFD107B0266692B700A14775 /* AdminViewModel.swift in Sources */,
 				FFC66A1326205EA10033C63C /* HomeView.swift in Sources */,
 				FF13E8342625C7CE00DD34E5 /* ActivityIndicator.swift in Sources */,
 				FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */,

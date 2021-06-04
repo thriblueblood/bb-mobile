@@ -31,11 +31,12 @@ struct MyListButton: View {
             let group = DispatchGroup()
             group.enter()
             viewModel.addToMyList(bookname: book.name)
+            print("Added to my List")
             group.leave()
             group.notify(queue: DispatchQueue.global(qos: .background)){
-                viewModel.getMyListData()
+            viewModel.displayData()
+            print("Display Data")
                 }
-            
         }, label: {
             VStack{
             Image(systemName: img)

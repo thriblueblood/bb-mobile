@@ -44,7 +44,8 @@ struct BookDetailView: View {
 
 struct TopBookInfoView: View {
     var book : Book
-//    @ObservedObject var viewModel = MyListViewModel()
+    @ObservedObject var viewModel = MyListViewModel()
+    
     var genresList : String{
         var l : String = ""
         for i in book.category {
@@ -84,8 +85,7 @@ struct TopBookInfoView: View {
                 .foregroundColor(Color("CustomWhite"))
                 .background(Color("CustomBlack"))
                 .onTapGesture {
-//                    viewModel.addToMyList(bookname: book.name)
-//                    viewModel.getMyListData()
+                    viewModel.addToMyList(bookname: book.name)
                 }
         }
     }

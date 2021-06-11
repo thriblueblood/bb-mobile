@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book : Identifiable {
+struct Book : Identifiable, Codable {
     var id : String
     var name : String
     var URL : URL
@@ -16,19 +16,20 @@ struct Book : Identifiable {
     var author : String?
     var overview : String?
     
-    var numberOfEpisode : Int?
-    var episode : [Episode]?
+//    var numberOfEpisode : Int?
+//    var episode : [Episode]?
     
     var moreLikeThis : [Book]?
+    var content : URL?
     
-    var numberOfEpisodeDisplay : String{
-        if let n = numberOfEpisode{
-            if(n==1){
-                return "1 episode"
-            }else{
-                return "\(n) episodes"
-            }
-        }
-        return ""
-    }
+//    var numberOfEpisodeDisplay : String{
+//        if let n = numberOfEpisode{
+//            if(n==1){
+//                return "1 episode"
+//            }else{
+//                return "\(n) episodes"
+//            }
+//        }
+//        return ""
+//    }
 }

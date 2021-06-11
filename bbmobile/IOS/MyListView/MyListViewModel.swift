@@ -3,17 +3,19 @@ import Firebase
 
 
 class MyListViewModel: ObservableObject{
-    @Published var myList = [Book]()
-    @Published var isLoaded : Bool = false
-    var myListInString: [String]?
-    
+    @Published var myList : [Book] = []
+    //    @Published var isLoaded : Bool = false
+    @Published var myListInString: [String]?
+    private var db : Firestore
+    private var alreadyFetch : Bool
     
     init(){
-        getMyListData()
+        db = Firestore.firestore()
+        alreadyFetch = false
     }
     
     public func addToMyList(bookname: String){
-        let db = Firestore.firestore()
+        
         let userID = Auth.auth().currentUser!.uid
         db.collection("users").whereField("id", isEqualTo: "\(userID)").getDocuments() { (document, err) in
             if let err = err {
@@ -25,23 +27,21 @@ class MyListViewModel: ObservableObject{
                         let data = doc.data()
                         let email = data["email"] as? String
                         self.myListInString = data["myList"] as? [String]
-                        db.collection("users").document("\(email!)").updateData([
+                        self.db.collection("users").document("\(email!)").updateData([
                             "myList": FieldValue.arrayUnion([bookname])
                         ])
                     }
                 }
             }
-            self.isLoaded = false
+            //            self.isLoaded = false
             print("Adding To my list.")
         }
     }
-    
     func getMyListData(){
         let group = DispatchGroup()
         group.enter()
         if let userId = Auth.auth().currentUser?.uid {
-            let db = Firestore.firestore()
-            db.collection("users").whereField("id", isEqualTo: "\(userId)").getDocuments() { (document, err) in
+            self.db.collection("users").whereField("id", isEqualTo: "\(userId)").getDocuments() { (document, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 }
@@ -51,54 +51,47 @@ class MyListViewModel: ObservableObject{
                             let data = doc.data()
                             self.myListInString = data["myList"] as? [String]
                         }
-                    group.leave()
+                        group.leave()
                     }
                     group.notify(queue: DispatchQueue.global(qos: .background)){
-                            self.displayData()
-                        }
+                        self.displayData()
+                    }
                 }
             }
         }
     }
     
     func displayData(){
-        let group = DispatchGroup()
-        group.enter()
-        if let myList = myListInString{
-            for name in myList{
-                let db = Firestore.firestore()
-                db.collection("categories").whereField("title",isEqualTo: name).addSnapshotListener { (snap, err) in
-                    if (err != nil){
-                        print((err?.localizedDescription)!)
-                        return
-                    }
-                    for i in snap!.documentChanges{
-                        print("NAME: ",name)
-                        let id = i.document.documentID
-                        let name = i.document.get("title") as? String
-                        let author = i.document.get("author") as! String
-                        let overview = i.document.get("overview") as! String
-                        let url = i.document.get("URL") as! String
-                        let pages = i.document.get("pages") as! [String]
-                        let categories = i.document.get("category") as! [String]
-                        self.myList.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
-                        print(self.myList)
+        DispatchQueue.main.async {
+            if let myList = self.myListInString{
+                
+                self.myList.removeAll()
+                
+                for name in myList{
+                    print("name: ", name)
+                    self.db.collection("categories").whereField("title",isEqualTo: name).addSnapshotListener { (snap, err) in
+                        if (err != nil){
+                            print((err?.localizedDescription)!)
+                            return
+                        }
+                        
+                        for i in snap!.documentChanges{
+                            
+                            let id = i.document.documentID
+                            let title = i.document.get("title") as? String
+                            print("title:", title!)
+                            let author = i.document.get("author") as! String
+                            let overview = i.document.get("overview") as! String
+                            let url = i.document.get("URL") as! String
+                            let pages = i.document.get("pages") as! [String]
+                            let categories = i.document.get("category") as! [String]
+                            self.myList.append(Book(id: id, name: title ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                            
+                        }
                     }
                 }
             }
-            print(self.myList)
-            group.leave()
-            group.notify(queue: DispatchQueue.global(qos: .background)){
-                DispatchQueue.main.async {
-                    print("main async")
-                    self.isLoaded = true
-                }
-               
-                }
-
-      
         }
-
     }
 }
 

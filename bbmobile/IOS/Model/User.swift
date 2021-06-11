@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Episode : Identifiable{
+struct User {
     var id = UUID().uuidString
     var name : String
-    var Image : URL
+    var Image : URL?
+    var isAdmin : Bool
+    var favorite : [Book]?
 }

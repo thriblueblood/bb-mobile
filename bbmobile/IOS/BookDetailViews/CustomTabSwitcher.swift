@@ -45,7 +45,7 @@ struct CustomTabSwitcher: View {
             case .content :
 
                 if viewModel.userStatus{
-                    ChapterView(book:book, episode:book.episode ?? [])
+                    ChapterView(book:book)
                         .padding(.top)
                 }
                 else{

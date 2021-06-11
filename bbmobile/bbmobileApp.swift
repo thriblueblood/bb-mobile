@@ -14,6 +14,7 @@ struct bbmobileApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
+//            AdminView()
         }
     }
 

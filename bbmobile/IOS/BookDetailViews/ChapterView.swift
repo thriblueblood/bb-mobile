@@ -10,7 +10,6 @@ import Kingfisher
 
 struct ChapterView: View {
     var book : Book
-    var episode : [Episode]
     var body: some View {
         
             VStack{
@@ -76,7 +75,7 @@ struct ChapterView_Previews: PreviewProvider {
         ZStack{
             Color("SecondaryColor")
                 .edgesIgnoringSafeArea(.all)
-            ChapterView(book: examBook1, episode: [examEpisode1,examEpisode2])
+            ChapterView(book: examBook1)
         }
         
     }

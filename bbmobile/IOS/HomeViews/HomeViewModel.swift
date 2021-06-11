@@ -20,11 +20,11 @@ class HomeViewModel: ObservableObject{
     
     // all book by categories
     @Published var mangaBookData = [Book]()
-    @Published var advFictBookData = [Book]()
+    @Published var fantasyBookData = [Book]()
     @Published var biographyBookData = [Book]()
-    @Published var darkFantBookData = [Book]()
-    
-    
+    @Published var romanceBookData = [Book]()
+    @Published var sportBookData = [Book]()
+
     @Published var dataIsLoaded : Bool = false
     
     init(){
@@ -53,34 +53,39 @@ class HomeViewModel: ObservableObject{
             for i in snap!.documentChanges{
                 let id = i.document.documentID
                 let name = i.document.get("title") as? String
-                let author = i.document.get("author") as! String
+                let author = i.document.get("author") as? String
                 let overview = i.document.get("overview") as! String
                 let url = i.document.get("URL") as! String
                 let pages = i.document.get("pages") as! [String]
                 let categories = i.document.get("category") as! [String]
                 let mangaCate = "Manga"
-                let advFictCate = "Adventure Fiction"
+                let fantasyCate = "Fantasy"
                 let bioCate = "Biography"
-                let darkFantCate = "Dark Fantasy"
+                let romanceCate = "Romance"
+                let sportCate = "Sport"
+                
                 var currentIndex = 0
                 for cate in categories{
                     if cate == mangaCate{
 //                        print("Found \(cate) for index \(currentIndex)")
                         self.mangaBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
                     }
-                    else if cate == advFictCate{
+                    else if cate == fantasyCate{
 //                        print("Found \(cate) for index \(currentIndex)")
-                        self.advFictBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.fantasyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
                     }
                     else if cate == bioCate{
 //                        print("Found \(cate) for index \(currentIndex)")
                         self.biographyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
                     }
-                    else if cate == darkFantCate{
+                    else if cate == romanceCate{
 //                        print("Found \(cate) for index \(currentIndex)")
-                        self.darkFantBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.romanceBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
                     }
-                    
+                    else if cate == sportCate{
+                        self.sportBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                    }
+
                     currentIndex += 1
                 }
                 
@@ -93,25 +98,19 @@ class HomeViewModel: ObservableObject{
        
         group.notify(queue: DispatchQueue.global(qos: .background)){
             self.setBookCate()
-//            print("Book Data ", self.bookData)
+
         }
     }
-//    func getBookData(){
-        
-
-       
-
-
-//    }
+    
     func setBookCate(){
         DispatchQueue.main.async{
-            self.books["Best of All time"] = self.bookData//keys is best of all time and value is examBook
+            self.books["All book"] = self.bookData//keys is best of all time and value is examBook
             self.books["Manga"] = self.mangaBookData
-            self.books["Novel"] = self.biographyBookData
-            self.books["Popular right now"] = self.advFictBookData
-            self.books["Mystery"] = self.bookData
+            self.books["Historical Person"] = self.biographyBookData
+            self.books["Fantasy"] = self.fantasyBookData
+            self.books["Romance"] = self.romanceBookData
+            self.books["Sport"] = self.sportBookData
             self.dataIsLoaded = true
-           
         }
 //        print("Data loaded")
     }

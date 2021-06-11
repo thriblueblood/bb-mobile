@@ -6,11 +6,11 @@
 //
 
 import Foundation
+import Kingfisher
 
 import SwiftUI
 
 struct MyListView: View {
-    var books : [Book]
     @State private var showBookDetail : Book? = nil
     @ObservedObject var viewModel = MyListViewModel()
     
@@ -33,27 +33,29 @@ struct MyListView: View {
                     Spacer()
                 }.padding()
                 
-                Button(action: {
-                    print(viewModel.isLoaded)
-                }, label: {
-                    Text("Check loading...")
-                        .foregroundColor(.white)
-                })
                 
-                if viewModel.isLoaded{
+//                if viewModel.isLoaded{
                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
                         LazyVGrid(columns: columns,spacing:10,content: {
-                            ForEach(viewModel.myList, id: \.id){book in
-                                EachBookHomeView(book: book)
+                        ForEach(viewModel.myList){book in
+                                KFImage(book.URL)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .id(UUID())
                                     .onTapGesture {
-                                     
                                         self.showBookDetail = book
                                     }
                             }
                         })
                     })
-                }
+//                }
                 Spacer()
+            }.onAppear(perform: {
+                print("Appear")
+                viewModel.getMyListData()
+            })
+            if (showBookDetail != nil){
+                BookDetailView(book: showBookDetail!, showBookDetail: $showBookDetail)
             }
         }
         
@@ -62,6 +64,6 @@ struct MyListView: View {
 
 struct MyListView_Previews: PreviewProvider {
     static var previews: some View {
-        MyListView(books: examBooks)
+        MyListView()
     }
 }

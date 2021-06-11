@@ -24,7 +24,7 @@
 		FF13E7F42624353900DD34E5 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF13E7F12624353900DD34E5 /* Lato-Regular.ttf */; };
 		FF13E7F52624353900DD34E5 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF13E7F22624353900DD34E5 /* Lato-Black.ttf */; };
 		FF13E7F62624353900DD34E5 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF13E7F32624353900DD34E5 /* Lato-Bold.ttf */; };
-		FF13E7FB26243E0B00DD34E5 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7FA26243E0B00DD34E5 /* Episode.swift */; };
+		FF13E7FB26243E0B00DD34E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7FA26243E0B00DD34E5 /* User.swift */; };
 		FF13E80026244A1A00DD34E5 /* CustomTabSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E7FF26244A1A00DD34E5 /* CustomTabSwitcher.swift */; };
 		FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8042624696500DD34E5 /* MoreLikeThis.swift */; };
 		FF13E80F2624749000DD34E5 /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E80E2624749000DD34E5 /* ChapterView.swift */; };
@@ -35,7 +35,13 @@
 		FF13E8342625C7CE00DD34E5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */; };
 		FF13E83C262603CD00DD34E5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */; };
 		FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF13E8402626099400DD34E5 /* GenerateBooks.swift */; };
+		FF4EE85826723A8200012368 /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4EE85726723A8200012368 /* AdminView.swift */; };
+		FF4EE85E26723AE600012368 /* AdminBookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4EE85D26723AE600012368 /* AdminBookDetailView.swift */; };
+		FF4EE86626723B0200012368 /* AdminAddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4EE86526723B0200012368 /* AdminAddBookView.swift */; };
 		FF58C4662630405C00FC41EB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF58C4652630405C00FC41EB /* AccountView.swift */; };
+		FF9414432673B3BE0006612C /* AdminAddBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9414422673B3BE0006612C /* AdminAddBookViewModel.swift */; };
+		FFACA4DE2672858F000A52AB /* AdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACA4DD2672858F000A52AB /* AdminViewModel.swift */; };
+		FFACA4FC26728BF7000A52AB /* PdfKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFACA4FB26728BF7000A52AB /* PdfKitView.swift */; };
 		FFC669F626205A100033C63C /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC669F526205A100033C63C /* Book.swift */; };
 		FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0226205A870033C63C /* EachBookHomeView.swift */; };
 		FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC66A0A26205CA80033C63C /* GlobalHelper.swift */; };
@@ -92,7 +98,7 @@
 		FF13E7F12624353900DD34E5 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		FF13E7F22624353900DD34E5 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		FF13E7F32624353900DD34E5 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
-		FF13E7FA26243E0B00DD34E5 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		FF13E7FA26243E0B00DD34E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF13E7FF26244A1A00DD34E5 /* CustomTabSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabSwitcher.swift; sourceTree = "<group>"; };
 		FF13E8042624696500DD34E5 /* MoreLikeThis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreLikeThis.swift; sourceTree = "<group>"; };
 		FF13E80E2624749000DD34E5 /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
@@ -103,7 +109,13 @@
 		FF13E8332625C7CE00DD34E5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		FF13E83B262603CD00DD34E5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		FF13E8402626099400DD34E5 /* GenerateBooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateBooks.swift; sourceTree = "<group>"; };
+		FF4EE85726723A8200012368 /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
+		FF4EE85D26723AE600012368 /* AdminBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminBookDetailView.swift; sourceTree = "<group>"; };
+		FF4EE86526723B0200012368 /* AdminAddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAddBookView.swift; sourceTree = "<group>"; };
 		FF58C4652630405C00FC41EB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		FF9414422673B3BE0006612C /* AdminAddBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAddBookViewModel.swift; sourceTree = "<group>"; };
+		FFACA4DD2672858F000A52AB /* AdminViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewModel.swift; sourceTree = "<group>"; };
+		FFACA4FB26728BF7000A52AB /* PdfKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfKitView.swift; sourceTree = "<group>"; };
 		FFC669F526205A100033C63C /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		FFC66A0226205A870033C63C /* EachBookHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachBookHomeView.swift; sourceTree = "<group>"; };
 		FFC66A0A26205CA80033C63C /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
@@ -189,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC669F526205A100033C63C /* Book.swift */,
-				FF13E7FA26243E0B00DD34E5 /* Episode.swift */,
+				FF13E7FA26243E0B00DD34E5 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +223,7 @@
 				FFC66A0226205A870033C63C /* EachBookHomeView.swift */,
 				FF13E7D02621C77D00DD34E5 /* MyListButton.swift */,
 				FF13E7CB2621B5DA00DD34E5 /* PreviewHomeView.swift */,
+				FFACA4FB26728BF7000A52AB /* PdfKitView.swift */,
 			);
 			path = ResourceViews;
 			sourceTree = "<group>";
@@ -259,6 +272,23 @@
 			path = SearchViews;
 			sourceTree = "<group>";
 		};
+		FF4EE85C26723ABD00012368 /* AdminBookDetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EE85D26723AE600012368 /* AdminBookDetailView.swift */,
+			);
+			path = AdminBookDetailViews;
+			sourceTree = "<group>";
+		};
+		FF4EE86A26723B1A00012368 /* AdminAddBookViews */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EE86526723B0200012368 /* AdminAddBookView.swift */,
+				FF9414422673B3BE0006612C /* AdminAddBookViewModel.swift */,
+			);
+			path = AdminAddBookViews;
+			sourceTree = "<group>";
+		};
 		FF58C46A2630406B00FC41EB /* AccountViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,9 +298,21 @@
 			path = AccountViews;
 			sourceTree = "<group>";
 		};
+		FF77C33A2671388D00A9099C /* AdminViews */ = {
+			isa = PBXGroup;
+			children = (
+				FFACA4DD2672858F000A52AB /* AdminViewModel.swift */,
+				FF4EE85726723A8200012368 /* AdminView.swift */,
+			);
+			path = AdminViews;
+			sourceTree = "<group>";
+		};
 		FFC669F4262059DD0033C63C /* IOS */ = {
 			isa = PBXGroup;
 			children = (
+				FF4EE86A26723B1A00012368 /* AdminAddBookViews */,
+				FF4EE85C26723ABD00012368 /* AdminBookDetailViews */,
+				FF77C33A2671388D00A9099C /* AdminViews */,
 				81037A272636E422001C8B6D /* MyListView */,
 				FF58C46A2630406B00FC41EB /* AccountViews */,
 				FF13E820262598CD00DD34E5 /* SearchViews */,
@@ -597,23 +639,29 @@
 				FF13E80026244A1A00DD34E5 /* CustomTabSwitcher.swift in Sources */,
 				FF13E7CC2621B5DA00DD34E5 /* PreviewHomeView.swift in Sources */,
 				FF13E7D12621C77D00DD34E5 /* MyListButton.swift in Sources */,
+				FF9414432673B3BE0006612C /* AdminAddBookViewModel.swift in Sources */,
 				FFC66A0326205A870033C63C /* EachBookHomeView.swift in Sources */,
 				FFE12DBD261F39AF00EC63F0 /* RegisterView.swift in Sources */,
 				FFC669F626205A100033C63C /* Book.swift in Sources */,
 				FFD50C2B26144F0F005393F5 /* ContentView.swift in Sources */,
 				FF13E8142624968800DD34E5 /* LockedView.swift in Sources */,
 				FF13E7DC2621FF3800DD34E5 /* CustomButton.swift in Sources */,
-				FF13E7FB26243E0B00DD34E5 /* Episode.swift in Sources */,
+				FF13E7FB26243E0B00DD34E5 /* User.swift in Sources */,
+				FF4EE85826723A8200012368 /* AdminView.swift in Sources */,
 				81B163F92634ABB600F1CE5D /* BookDetailViewModel.swift in Sources */,
 				FF13E83C262603CD00DD34E5 /* SearchViewModel.swift in Sources */,
+				FF4EE85E26723AE600012368 /* AdminBookDetailView.swift in Sources */,
 				FF13E8272625BB3D00DD34E5 /* SearchBar.swift in Sources */,
 				FFC66A1326205EA10033C63C /* HomeView.swift in Sources */,
 				FF13E8342625C7CE00DD34E5 /* ActivityIndicator.swift in Sources */,
 				FFC66A0B26205CA80033C63C /* GlobalHelper.swift in Sources */,
+				FFACA4DE2672858F000A52AB /* AdminViewModel.swift in Sources */,
 				FF13E81C26258BFD00DD34E5 /* HomeStackView.swift in Sources */,
+				FF4EE86626723B0200012368 /* AdminAddBookView.swift in Sources */,
 				FF13E8052624696500DD34E5 /* MoreLikeThis.swift in Sources */,
 				81B163FE2634B65A00F1CE5D /* AccountViewModel.swift in Sources */,
 				FF13E8412626099400DD34E5 /* GenerateBooks.swift in Sources */,
+				FFACA4FC26728BF7000A52AB /* PdfKitView.swift in Sources */,
 				81037A232636E41C001C8B6D /* MyListView.swift in Sources */,
 				81B163EE2634927800F1CE5D /* RegisterViewModel.swift in Sources */,
 				81037A2C2636E76F001C8B6D /* MyListViewModel.swift in Sources */,

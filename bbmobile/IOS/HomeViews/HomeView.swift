@@ -69,8 +69,9 @@ struct TopTabBar: View {
             })
             
             Spacer()
-                Image("profile")
+                Image(systemName: "person.circle.fill")
                     .resizable()
+                    .foregroundColor(Color("MainColor"))
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color("MainColor"), lineWidth: 5))
                     .frame(width:45,height: 40)

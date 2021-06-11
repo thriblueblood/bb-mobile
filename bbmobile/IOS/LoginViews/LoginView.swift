@@ -43,7 +43,6 @@ struct LoginView: View {
                 
                 Button(action: {
                     self.verify()
-                    //                    goToHome = true
                 }, label: {
                     Text("Login")
                         .font(.custom("Lato-Black", size: 16))

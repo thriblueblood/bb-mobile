@@ -8,10 +8,10 @@
 import SwiftUI
 import Firebase
 struct CustomTabSwitcher: View {
-    @State private var currentTabIndex : BookTab = .content
+    @State private var currentTabIndex : BookTab = .more
     var tabs : [BookTab]
     var book : Book
-    @ObservedObject var viewModel = BookDetailViewModel()
+//    @ObservedObject var viewModel = BookDetailViewModel()
 
     
     func flexTabWidth(tabs : BookTab)-> CGFloat{
@@ -42,15 +42,15 @@ struct CustomTabSwitcher: View {
             }
             switch currentTabIndex{
             
-            case .content :
-
-                if viewModel.userStatus{
-                    ChapterView(book:book)
-                        .padding(.top)
-                }
-                else{
-                    LockedView()
-                }
+//            case .content :
+//
+//                if viewModel.userStatus{
+//                    ChapterView(book:book)
+//                        .padding(.top)
+//                }
+//                else{
+//                    LockedView()
+//                }
                 
             case .more :
                 MoreLikeThis(book:book.moreLikeThis ?? [])
@@ -60,7 +60,7 @@ struct CustomTabSwitcher: View {
 }
 
 enum BookTab : String{
-    case content = "CONTENT"
+//    case content = "CONTENT"
     case more = "MORE LIKE THIS"
 }
 

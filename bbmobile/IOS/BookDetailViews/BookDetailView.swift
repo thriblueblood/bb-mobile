@@ -11,6 +11,10 @@ import Kingfisher
 struct BookDetailView: View {
     var book : Book
     @Binding var showBookDetail : Book?
+    @ObservedObject var viewModelData = BookDetailViewModel()
+    @ObservedObject var viewModel = MyListViewModel()
+    @State var showContent : Bool = false
+    
     var body: some View {
         ZStack{
             Color("SecondaryColor")
@@ -33,10 +37,30 @@ struct BookDetailView: View {
                 ScrollView(showsIndicators:false){
                     VStack{
                         TopBookInfoView(book:book)
-                        CustomTabSwitcher(tabs: [BookTab.content,BookTab.more],book: book)
-                        
+                        CustomButton(img: "book.fill", text: viewModelData.userStatus ? "Read now" : "Subscribe to read the book")
+                            .foregroundColor(Color(viewModelData.userStatus ? "SecondaryColor" : "CustomBlack"))
+                            .background(Color(viewModelData.userStatus ? "MainColor" : "CustomWhite"))
+                            .padding(.top,5)
+                            .onTapGesture {
+                                viewModelData.userStatus ?
+                                    showContent = true : print("Please, subscribe")
+                            }.onAppear(perform: {
+                                viewModelData.getUserData()
+                            })
+                        CustomButton(img: "bookmark.fill", text: "Add to my list")
+                            .foregroundColor(Color("CustomWhite"))
+                            .background(Color("CustomBlack"))
+                            .onTapGesture {
+                                viewModel.switchMyList(title: book.name)
+                            }
+                        CustomTabSwitcher(tabs: [BookTab.more],book: book)
+
                     }.padding(.horizontal,5)
                 }
+            }
+            
+            if showContent {
+                ReadView(showContent: $showContent, url: book.content!)
             }
         }
     }
@@ -44,7 +68,6 @@ struct BookDetailView: View {
 
 struct TopBookInfoView: View {
     var book : Book
-    @ObservedObject var viewModel = MyListViewModel()
     
     var genresList : String{
         var l : String = ""
@@ -70,23 +93,12 @@ struct TopBookInfoView: View {
                     Text("Author: \(book.author ?? "")")
                     Text("Overview: \(book.overview ?? "")")
                 }
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(.white)
                 .font(.custom("Lato-Bold", size: 16))
                 Spacer()
             }
-            CustomButton(img: "book.fill", text: "Read now")
-                .foregroundColor(Color("SecondaryColor"))
-                .background(Color("MainColor"))
-                .padding(.top,5)
-                .onTapGesture {
-                    print(book.URL)
-                }
-            CustomButton(img: "bookmark.fill", text: "Add to my list")
-                .foregroundColor(Color("CustomWhite"))
-                .background(Color("CustomBlack"))
-                .onTapGesture {
-                    viewModel.addToMyList(bookname: book.name)
-                }
+
         }
     }
 }

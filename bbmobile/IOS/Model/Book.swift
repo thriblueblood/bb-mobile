@@ -8,11 +8,11 @@
 import Foundation
 
 struct Book : Identifiable, Codable {
-    var id : String
+    var id : String?
     var name : String
     var URL : URL
     var category : [String]
-    var pages: [String]
+    var pages: [String]?
     var author : String?
     var overview : String?
     

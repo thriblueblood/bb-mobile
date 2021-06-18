@@ -61,7 +61,7 @@ struct AccountView: View {
                         
                         Button(action: {
                             goToHome = false
-                            self.signout()
+                            viewModel.signout()
                         }, label: {
                             HStack{
                                 Spacer()
@@ -81,17 +81,11 @@ struct AccountView: View {
                 Spacer()
                 }
             }
-        }
+        }.onAppear(perform: {
+            viewModel.getStatus()
+        })
     }
-    func signout(){
-            do{
-                try Auth.auth().signOut()
-            }
-            catch{
-                print("error")
-            }
 
-        }
 //    func subscribe(){
 //
 //        let db = Firestore.firestore()

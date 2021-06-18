@@ -11,16 +11,17 @@ import Kingfisher
 struct ChapterView: View {
     var book : Book
     var body: some View {
+        PDFKitView(url: URL(string: "\(book.content)"))
         
-            VStack{
-                ForEach(book.pages, id: \.self){ pages in
-                    KFImage(URL(string:pages))
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                        .padding(.bottom,2)
-                }
-        }
+//            VStack{
+//                ForEach(book.pages, id: \.self){ pages in
+//                    KFImage(URL(string:pages))
+//                        .resizable()
+//                        .scaledToFit()
+//                        .padding(.horizontal)
+//                        .padding(.bottom,2)
+//                }
+//        }
             
 //        VStack{
 //            ForEach(book.pages, id: \.self){ pages in
@@ -66,7 +67,6 @@ struct ChapterView: View {
 //            }
 //            Spacer()
 //        }
-
     }
 }
 

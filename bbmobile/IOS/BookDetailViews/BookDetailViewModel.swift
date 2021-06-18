@@ -11,10 +11,6 @@ class BookDetailViewModel: ObservableObject{
     
     @Published var userStatus: Bool = false
     
-    init(){
-        getUserData()
-    }
-    
     public func getUserData(){
         
         let db = Firestore.firestore()

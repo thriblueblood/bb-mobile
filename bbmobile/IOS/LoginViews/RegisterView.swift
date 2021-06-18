@@ -9,43 +9,41 @@ import SwiftUI
 import Firebase
 
 struct RegisterView: View {
-//    var loginView: LoginView
-    @State var email = ""
-    @State var password = ""
-    @State var rePassword = ""
+    
+    @State private var email : String = ""
+    @State private var password : String = ""
     @Binding var goToRegister : Bool
-//    @Published var user: User
+    @ObservedObject private var viewModel = RegisterViewModel()
     
     var body: some View {
         ZStack(alignment:.topLeading){
             Color("MainColor")
                 .edgesIgnoringSafeArea(.all)
                 VStack{
-                   
                     Text("Feel free to use our service!")
                         .font(.custom("Lato-Bold", size: 16))
                         .foregroundColor(Color("SecondaryColor"))
                     
-                    TextField("Username", text: self.$email)
+                    TextField("Username", text: $email)
                         .padding(.all)
                         .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
-                    SecureField("Password", text: self.$password)
+                    SecureField("Password", text: $password)
                         .padding()
                         .font(.custom("Lato-Regular", size: 16))
                         .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                         .padding(.top,20)
                     
-                    SecureField("Re-Enter Passwrod", text: self.$rePassword)
-                        .padding(.all)
-                        .font(.custom("Lato-Regular", size: 16))
-                        .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
-                        .padding(.top,20)
+//                    SecureField("Re-Enter Passwrod", text: $viewModel.confirmPassword)
+//                        .padding(.all)
+//                        .font(.custom("Lato-Regular", size: 16))
+//                        .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
+//                        .padding(.top,20)
                     
                     Button(action: {
-                        self.register()
+                        viewModel.register(email: email, password: password)
                        goToRegister = false
                     }, label: {
                         Text("Register")
@@ -67,38 +65,13 @@ struct RegisterView: View {
                     .font(.system(size: 24))
             }).padding(2).padding(.leading)
         }.navigationBarHidden(true)
-    }
-    func register(){
-        
-        Auth.auth().createUser(withEmail: self.email, password: self.password) { (res, err) in
-            
-            if let err = err{
-                            print(err.localizedDescription)
-                        }
-                        else{
-                            print("success")
-                            let db = Firestore.firestore()
-                            
-                            db.collection("users").document("\(self.email)").setData([
-                                "id": "",
-                                "email": self.email,
-                                "password": self.password,
-                                "subscribe": false
-                            ])
-                            
-                                
-                            
-                        }
-        }
-        
-    }
-    
+    }    
 }
 
 
 
-//struct RegisterView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RegisterView(goToRegister: .constant(true))
-//    }
-//}
+struct RegisterView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegisterView(goToRegister: .constant(true))
+    }
+}

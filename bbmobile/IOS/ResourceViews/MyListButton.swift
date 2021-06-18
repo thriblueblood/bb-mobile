@@ -10,35 +10,24 @@ import SwiftUI
 struct MyListButton: View {
     var text : String
     
-    @ObservedObject var viewModel = MyListViewModel()
-    
-    var activeImg : String
-    var inactiveImg : String
-    var isActive : Bool
-    
     @Binding var book : Book
-    
-    var img : String {
-        if isActive{
-            return activeImg
-        }else{
-            return inactiveImg
-        }
-    }
+    @ObservedObject var viewModel = MyListViewModel()
+
     
     var body: some View {
         Button(action: {
-            let group = DispatchGroup()
-            group.enter()
-            viewModel.addToMyList(bookname: book.name)
-            group.leave()
-            group.notify(queue: DispatchQueue.global(qos: .background)){
-                viewModel.getMyListData()
-                }
+            viewModel.switchMyList(title: book.name)
+//            let group = DispatchGroup()
+//            group.enter()
+//            viewModel.addToMyList(bookname: book.name)
+//            group.leave()
+//            group.notify(queue: DispatchQueue.global(qos: .background)){
+//                viewModel.getMyListData()
+//                }
             
         }, label: {
             VStack{
-            Image(systemName: img)
+                Image(systemName: viewModel.isMyList ? "checkmark":"plus")
                 .foregroundColor(Color("MainColor"))
                 .font(.system(size: 24))
             Text(text)
@@ -46,6 +35,9 @@ struct MyListButton: View {
                 .foregroundColor(.white)
             }
         
+        }).onAppear(perform: {
+            viewModel.getMyListData()
+            viewModel.checkIsMyList(title: book.name)
         })
     }
 }
@@ -55,7 +47,7 @@ struct MyListButton: View {
 //    static var previews: some View {
 //        ZStack{
 //        Color(.black)
-//            MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false, book: )
+//            MyListButton(text: "My List", activeImg: "checkmark", inactiveImg: "plus", isActive: false, book: examBook1)
 //        }
 //    }
 //}

@@ -13,31 +13,54 @@ class AdminViewModel : ObservableObject{
     @Published var books : [Book] = []
     private var db : Firestore
     
+    @Published var loadingState : LoadingState = .idle
+    
+    // For track the multiple append
+    @Published var booksString : [String] = []
+    
     init(){
         db = Firestore.firestore()
     }
     
     func fetchBookData(){
-        DispatchQueue.main.async{
-            self.db.collection("test").addSnapshotListener { (snap, err) in
-                if (err != nil){
-                    print((err?.localizedDescription)!)
-                    return
-                }
-                for i in snap!.documentChanges{
-                    let id = i.document.documentID
-                    let name = i.document.get("title") as? String
-                    let author = i.document.get("author") as? String
-                    let overview = i.document.get("overview") as! String
-                    let url = i.document.get("URL") as! String
-                    let pages = i.document.get("pages") as! [String]
-                    let categories = i.document.get("category") as! [String]
-                    let content = i.document.get("content") as! String
-                    
-                    self.books.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview, content: URL(string : content)))
-                }
-            }
+        DispatchQueue.main.async {
+            self.loadingState = .loading
         }
+            self.db.collection("categories").addSnapshotListener { (querySnapshot, error) in
+                     guard let documents = querySnapshot?.documents else {
+                         print("DEBUG: No documents")
+                        DispatchQueue.main.async {
+                            self.loadingState =  .failure
+                        }
+                         return
+                     }
+                DispatchQueue.main.async {
+                    self.books = documents.map({ (queryDocumentSnapshot) -> Book in
+                        let data = queryDocumentSnapshot.data()
+                       let name = data["title"] as? String
+                       print(name!)
+                       let author = data["author"] as? String
+                       let overview = data["overview"] as! String
+                       let url = data["URL"] as! String
+                       let categories = data["category"] as! [String]
+                       let content = data["content"] as? String
+                       return Book(name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview, content: URL(string : content ?? ""))
+
+                    })
+                    self.loadingState = .success
+                }
+                
+                 }
     }
+    
+    func signout(){
+            do{
+                try Auth.auth().signOut()
+            }
+            catch{
+                print("error")
+            }
+
+        }
 }
 

@@ -15,10 +15,6 @@ class AccountViewModel: ObservableObject{
     @Published var userStatus: Bool = false
     var userName : String = ""
     
-    init() {
-        getStatus()
-    }
-    
     public func getName(email: String) -> String {
         var name : String = ""
         for char in email {
@@ -55,8 +51,6 @@ class AccountViewModel: ObservableObject{
                 }
             }
         }
-        
-        
     }
    
     public func switchStatus(){
@@ -101,6 +95,17 @@ class AccountViewModel: ObservableObject{
         }
         
     }
+    
+    func signout(){
+            do{
+                try Auth.auth().signOut()
+            }
+            catch{
+                print("error")
+            }
+
+        }
+    
     private func setState(state:AccountState){
         DispatchQueue.main.async {
             self.viewState = state

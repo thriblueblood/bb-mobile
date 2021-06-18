@@ -28,6 +28,7 @@ struct HomeStackView: View {
                                 .padding(.horizontal,20)
                                 .onTapGesture(perform: {
                                     showBookDetail = book
+                                    print(book)
                                 })
                         }
                     }

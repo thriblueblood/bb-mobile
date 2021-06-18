@@ -7,16 +7,28 @@
 
 import Foundation
 import Firebase
-final class RegisterViewModel: ObservableObject{
-    private let path = "users"
-    private let store = Firestore.firestore()
-    @Published var user: [User] = []
+import SwiftUI
+
+class RegisterViewModel: ObservableObject{
     
-//    func add(_ user: User){
-//        do{
-//            _ = try store.collection(path).addDocument(from: user)
-//        } catch{
-//            fatalError("Adding a book failed")
-//        }
-//    }
+    func register(email : String, password : String){
+        Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+            if let err = err{
+                print(err.localizedDescription)
+            }
+            else{
+                print("success")
+                let db = Firestore.firestore()
+                db.collection("users").document("\(email)").setData([
+                    "id": "",
+                    "email": email,
+                    "password": password,
+                    "subscribe": false,
+                    "isAdmin": false
+                ])
+            }
+        }
+        
+    }
+    
 }

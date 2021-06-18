@@ -14,7 +14,6 @@ struct bbmobileApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
-//            AdminView()
         }
     }
 
@@ -25,4 +24,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     FirebaseApp.configure()
     return true
   }
+    
+    
 }

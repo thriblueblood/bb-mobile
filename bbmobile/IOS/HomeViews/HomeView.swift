@@ -32,7 +32,6 @@ struct HomeView: View {
                     }
                 }
                 
-                
                 if (showBookDetail != nil){
                     BookDetailView(book: showBookDetail!,showBookDetail: $showBookDetail)
                     //                    .animation(.easeIn)

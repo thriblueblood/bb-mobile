@@ -10,12 +10,12 @@ import Kingfisher
 import FirebaseFirestore
 
 struct AdminView: View {
-    
     @State private var showBookDetail : Book? = nil
     @State private var showAddNewBook : Bool = false
     
-    @ObservedObject var viewModel = AdminViewModel()
+    @Binding var goToAdmin : Bool
     
+    @ObservedObject var viewModel = AdminViewModel()
     
     var body: some View {
         ZStack{
@@ -28,6 +28,14 @@ struct AdminView: View {
                     Text("Hello, Admin")
                         .font(.custom("Lato-Bold", size: 34))
                         .foregroundColor(Color("MainColor"))
+                    Button(action: {
+                        viewModel.signout()
+                        goToAdmin = false
+                    }, label: {
+                        Text("Log out")
+                            .font(.custom("Lato-Regular", size: 18))
+                            .foregroundColor(.red)
+                    }).padding(.top,5)
                     Spacer()
                     Button(action: {
                         showAddNewBook = true
@@ -40,28 +48,29 @@ struct AdminView: View {
                 //SearchBar
                 
                 //Listview
-                ScrollView{
-                    LazyVStack{
-                        ForEach(viewModel.books, id: \.id){ book in
-                            AdminListView(book:book)
-                                .onTapGesture(perform: {
-                                    showBookDetail = book
-                                })
-                            Divider()
-                                .background(Color("MainColor"))
-                        }
+                    ScrollView{
+    //                    LazyVStack{
+                        ForEach(viewModel.books, id: \.name){ book in
+                                AdminListView(book:book)
+                                    .onTapGesture(perform: {
+                                        showBookDetail = book
+                                    })
+                                Divider()
+                                    .background(Color("MainColor"))
+                            }
+    //                    }
                     }
-                }.onAppear(perform: {
-                    viewModel.fetchBookData()
-                })
-                    
-            }
+
+            }.onAppear(perform: {
+                print("Fetch data")
+                viewModel.fetchBookData()
+            })
             if showBookDetail != nil {
                 AdminBookDetailView(book: showBookDetail!, showBookDetail: $showBookDetail)
             }
             
             if showAddNewBook != false {
-                AdminAddBookView(showAddNewBook: $showAddNewBook)
+                AdminAddBookView(showAddNewBook: $showAddNewBook, showBookDetail: $showBookDetail)
             }
     }
 }
@@ -69,7 +78,7 @@ struct AdminView: View {
 
 struct AdminView_Previews: PreviewProvider {
     static var previews: some View {
-        AdminView(viewModel: AdminViewModel())
+        AdminView(goToAdmin: .constant(true), viewModel: AdminViewModel())
     }
 }
 

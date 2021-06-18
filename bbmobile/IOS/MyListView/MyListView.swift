@@ -51,7 +51,6 @@ struct MyListView: View {
 //                }
                 Spacer()
             }.onAppear(perform: {
-                print("Appear")
                 viewModel.getMyListData()
             })
             if (showBookDetail != nil){

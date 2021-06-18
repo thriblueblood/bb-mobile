@@ -10,15 +10,19 @@ import Firebase
 
 struct LoginView: View {
     
-    @State var email = ""
-    @State var password = ""
     @State var goToHome : Bool = false
+    @State var goToAdmin : Bool = false
+    
     @State var goToRegister : Bool = false
     @State var alert = false
     @State var error = ""
     
+    @State var email : String = ""
+    @State var password : String = ""
+    
+    @ObservedObject var viewModel = LoginViewModel()
+    
     var body: some View {
-        
         ZStack{
             Color("MainColor")
                 .edgesIgnoringSafeArea(.all)
@@ -29,20 +33,28 @@ struct LoginView: View {
                     .font(.custom("Lato-Bold", size: 16))
                     .foregroundColor(Color("SecondaryColor"))
                 
-                TextField("Username", text: self.$email)
+                TextField("Username", text: $email)
                     .padding(.all)
                     .font(.custom("Lato-Regular", size: 16))
                     .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                     .padding(.top,20)
                 
-                SecureField("Password", text: self.$password)
+                SecureField("Password", text: $password)
                     .font(.custom("Lato-Regular", size: 16))
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white))
                     .padding(.top,20)
                 
                 Button(action: {
-                    self.verify()
+                    viewModel.login(email : email, password : password) {
+//                    viewModel.checkUserType()
+                        if email == "Kmitl@hotmail.com" && password == "123456"{
+                            goToAdmin = true
+                        }else{
+                            goToHome = true
+                        }
+                    
+                    }
                 }, label: {
                     Text("Login")
                         .font(.custom("Lato-Black", size: 16))
@@ -63,57 +75,48 @@ struct LoginView: View {
                         Text("Register now")
                             .font(.custom("Lato-Bold", size: 16))
                             .foregroundColor(Color("SecondaryColor"))
-                })
+                    })
                 }
             }.padding(.horizontal,25)
             
-            if(goToHome){
+//            if (viewModel.mode == .success && goToHome == true){
+//                if viewModel.userType{
+//                    AdminView(goToHome: $goToHome)
+//                        .animation(.easeInOut)
+//                        .transition(.opacity)
+//                }else{
+//                    ContentView(goToHome: $goToHome)
+//                        .animation(.easeInOut)
+//                        .transition(.opacity)
+//                }
+//            }
+            
+            if goToHome {
                 ContentView(goToHome: $goToHome)
-                    .animation(.easeInOut)
-                    .transition(.opacity)
             }
+            
+            if goToAdmin{
+                AdminView(goToAdmin: $goToAdmin)
+            }
+            
             if(goToRegister){
                 RegisterView(goToRegister: $goToRegister)
             }
+            
             if self.alert{
                 ErrorView(alert: self.$alert, error: self.$error)
             }
         }
     }
-    func verify(){
-        let db = Firestore.firestore()
-        if self.email != "" && self.password != ""{
-            Auth.auth().signIn(withEmail: self.email, password: self.password) { (res, err) in
-                if err != nil{
-                    print(err?.localizedDescription ?? "")
-                    self.alert.toggle()
-                }
-                else{
-                    //                    print("success")
-                    //                    print(userID)
-                    let userID = Auth.auth().currentUser!.uid
-                    db.collection("users").document("\(self.email)").updateData([
-                        "id": "\(userID)"
-                    ])
-                    goToHome = true
-                    
-                    
-                }
-            }
-        }
-        
-    }
-    
-    
 }
 
 
 
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoginView()
-//    }
-//}
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}
 
 struct ErrorView : View{
     @Binding var alert : Bool

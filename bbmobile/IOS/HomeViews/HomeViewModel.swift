@@ -27,8 +27,8 @@ class HomeViewModel: ObservableObject{
 
     @Published var dataIsLoaded : Bool = false
     
-    init(){
-        loadData()
+    init() {
+        self.loadData()
     }
     public var allCategories : [String]{
         return books.keys.map({String($0)}) //return the array of string in key's books
@@ -40,8 +40,10 @@ class HomeViewModel: ObservableObject{
         return books[forCategories] ?? []
     }
     
+//    init() {
+//        loadData()
+//    }
     func loadData(){
-        
         let group = DispatchGroup()
         group.enter()
         let db = Firestore.firestore()
@@ -56,8 +58,9 @@ class HomeViewModel: ObservableObject{
                 let author = i.document.get("author") as? String
                 let overview = i.document.get("overview") as! String
                 let url = i.document.get("URL") as! String
-                let pages = i.document.get("pages") as! [String]
                 let categories = i.document.get("category") as! [String]
+                let content = i.document.get("content") as? String
+                
                 let mangaCate = "Manga"
                 let fantasyCate = "Fantasy"
                 let bioCate = "Biography"
@@ -68,29 +71,29 @@ class HomeViewModel: ObservableObject{
                 for cate in categories{
                     if cate == mangaCate{
 //                        print("Found \(cate) for index \(currentIndex)")
-                        self.mangaBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.mangaBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
                     }
                     else if cate == fantasyCate{
 //                        print("Found \(cate) for index \(currentIndex)")
-                        self.fantasyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.fantasyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
                     }
                     else if cate == bioCate{
 //                        print("Found \(cate) for index \(currentIndex)")
-                        self.biographyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.biographyBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
                     }
                     else if cate == romanceCate{
 //                        print("Found \(cate) for index \(currentIndex)")
-                        self.romanceBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.romanceBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
                     }
                     else if cate == sportCate{
-                        self.sportBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                        self.sportBookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
                     }
 
                     currentIndex += 1
                 }
                 
                     
-                self.bookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, pages: pages, author: author, overview: overview))
+                self.bookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview, content: URL(string :content ?? "")))
             }
         group.leave()
         }

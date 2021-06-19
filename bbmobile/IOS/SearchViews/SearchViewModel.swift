@@ -14,21 +14,22 @@ class SearchViewModel : ObservableObject {
     @Published var isShowExplore : Bool = true
     var viewModel = HomeViewModel()
 
-    public func updateSearchText(string:String){
+    public func updateSearchText(array : [Book], string:String){
         setState(state: .loading)
-        getSearchResult(string: string)
+        getSearchResult(array: array,string: string)
 
         if string.count > 0 {
             isShowExplore = false
-            getSearchResult(string: string)
+            getSearchResult(array: array, string: string)
         }
         else{
             isShowExplore=true
         }
     }
 
-    private func getSearchResult(string : String){
-        let searchResult = viewModel.bookData.filter({$0.name.lowercased().contains(string.lowercased())})
+    private func getSearchResult(array : [Book], string : String){
+        print(viewModel.bookData)
+        let searchResult = array.filter({$0.name.lowercased().contains(string.lowercased())})
 
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             if searchResult.count == 0 {

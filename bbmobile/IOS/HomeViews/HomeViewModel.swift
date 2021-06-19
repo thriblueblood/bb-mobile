@@ -9,9 +9,11 @@ import Foundation
 import Firebase
 import SwiftUI
 
+
 class HomeViewModel: ObservableObject{
     
     //Key Value is Category
+    private var db : Firestore
     
     @Published var books: [String: [Book]] = [:]
     
@@ -28,8 +30,10 @@ class HomeViewModel: ObservableObject{
     @Published var dataIsLoaded : Bool = false
     
     init() {
-        self.loadData()
+        db = Firestore.firestore()
+        fetchBookData()
     }
+    
     public var allCategories : [String]{
         return books.keys.map({String($0)}) //return the array of string in key's books
     }
@@ -40,9 +44,58 @@ class HomeViewModel: ObservableObject{
         return books[forCategories] ?? []
     }
     
-//    init() {
-//        loadData()
-//    }
+    func fetchBookData(){
+            self.db.collection("categories").addSnapshotListener { (querySnapshot, error) in
+                     guard let documents = querySnapshot?.documents else {
+                         print("DEBUG: No documents")
+                         return
+                     }
+                    self.bookData = documents.map({ (queryDocumentSnapshot) -> Book in
+                        let data = queryDocumentSnapshot.data()
+                       let name = data["title"] as? String
+                       let author = data["author"] as? String
+                       let overview = data["overview"] as! String
+                       let url = data["URL"] as! String
+                       let categories = data["category"] as! [String]
+                       let content = data["content"] as? String
+                        
+                        let mangaCate = "Manga"
+                        let fantasyCate = "Fantasy"
+                        let bioCate = "Biography"
+                        let romanceCate = "Romance"
+                        let sportCate = "Sport"
+                        
+                        var currentIndex = 0
+                        for cate in categories{
+                            if cate == mangaCate{
+        //                        print("Found \(cate) for index \(currentIndex)")
+                                self.mangaBookData.append(Book( name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
+                            }
+                            else if cate == fantasyCate{
+        //                        print("Found \(cate) for index \(currentIndex)")
+                                self.fantasyBookData.append(Book(name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
+                            }
+                            else if cate == bioCate{
+        //                        print("Found \(cate) for index \(currentIndex)")
+                                self.biographyBookData.append(Book(name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
+                            }
+                            else if cate == romanceCate{
+        //                        print("Found \(cate) for index \(currentIndex)")
+                                self.romanceBookData.append(Book( name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
+                            }
+                            else if cate == sportCate{
+                                self.sportBookData.append(Book(name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview))
+                            }
+
+                            currentIndex += 1
+                        }
+                        
+                       return Book(name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview, content: URL(string : content ?? ""))
+                    })
+                    self.setBookCate()
+    }
+    }
+    
     func loadData(){
         let group = DispatchGroup()
         group.enter()
@@ -95,13 +148,11 @@ class HomeViewModel: ObservableObject{
                     
                 self.bookData.append(Book(id: id, name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview, content: URL(string :content ?? "")))
             }
-        group.leave()
+            group.leave()
         }
-    
-       
         group.notify(queue: DispatchQueue.global(qos: .background)){
+            print("BBBBBB")
             self.setBookCate()
-
         }
     }
     
@@ -115,7 +166,6 @@ class HomeViewModel: ObservableObject{
             self.books["Sport"] = self.sportBookData
             self.dataIsLoaded = true
         }
-//        print("Data loaded")
     }
 
 }

@@ -22,7 +22,7 @@ struct HomeStackView: View {
                 }
                 ScrollView(.horizontal, showsIndicators: false){
                     LazyHStack{
-                        ForEach(viewModel.getBook(forCategories: category)) { book in
+                        ForEach(viewModel.getBook(forCategories: category), id :\.name) { book in
                             EachBookHomeView(book: book)
                                 .frame(width:100, height:200)
                                 .padding(.horizontal,20)

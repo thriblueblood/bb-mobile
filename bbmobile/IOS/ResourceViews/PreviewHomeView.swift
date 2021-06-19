@@ -55,7 +55,7 @@ struct PreviewHomeView: View {
                         .padding(.bottom,100)
                     HStack{
                         Spacer()
-                        MyListButton(text: "My List", book: $book)
+                        MyListButton(text: "My List", book: book)
                         Button(action: {
                             showBookDetail = book
                         }, label: {

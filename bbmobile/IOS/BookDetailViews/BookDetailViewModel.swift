@@ -12,10 +12,8 @@ class BookDetailViewModel: ObservableObject{
     @Published var userStatus: Bool = false
     
     public func getUserData(){
-        
         let db = Firestore.firestore()
         let userID = Auth.auth().currentUser!.uid
-        
         db.collection("users").whereField("id", isEqualTo: "\(userID)").getDocuments() { (document, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -29,14 +27,18 @@ class BookDetailViewModel: ObservableObject{
                         self.userStatus = postBody!
                         print(data)
                     }
-                    
-                    
                 }
-                
-            
-                
             }
         }
-        
+    }
+    
+    public func getMoreLikeThis(genres:[String], data : [Book]) -> [Book]{
+        var moreLikeThis : [Book] = []
+        for book in data{
+            if book.category.contains(where: genres.contains){
+                moreLikeThis.append(book)
+            }
+        }
+        return moreLikeThis
     }
 }

@@ -47,7 +47,7 @@ struct BookDetailView: View {
                             }.onAppear(perform: {
                                 viewModelData.getUserData()
                             })
-                        CustomButton(img: "bookmark.fill", text: "Add to my list")
+                        CustomButton(img: "bookmark.fill", text: viewModel.isMyList ? "Delte to my list":"Add to my list")
                             .foregroundColor(Color("CustomWhite"))
                             .background(Color("CustomBlack"))
                             .onTapGesture {

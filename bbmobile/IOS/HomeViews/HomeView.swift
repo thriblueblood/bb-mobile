@@ -23,7 +23,6 @@ struct HomeView: View {
                     //Main Vstack
                     LazyVStack { //load only the view that user see for performance
                         TopTabBar(showAccountView: $showAccountView)
-                        
                         PreviewHomeView(book: viewModel.bookData.shuffled()[0], showBookDetail: $showBookDetail)
                             .frame(width:UIScreen.main.bounds.width)
                             .padding(.top,-100)
@@ -43,6 +42,8 @@ struct HomeView: View {
                 }
             }
         }
+        .onAppear(perform: {
+        })
         .foregroundColor(.white)
         //        .font(.custom("Cocogoose", size: 16))
     }

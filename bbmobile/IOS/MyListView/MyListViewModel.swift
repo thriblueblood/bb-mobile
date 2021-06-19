@@ -4,7 +4,6 @@ import Firebase
 
 class MyListViewModel: ObservableObject{
     @Published var myList : [Book] = []
-    //    @Published var isLoaded : Bool = false
     @Published var myListInString: [String]?
     @Published var isMyList : Bool = false
     private var db : Firestore
@@ -35,7 +34,6 @@ class MyListViewModel: ObservableObject{
 //    }
     
     public func checkIsMyList(title : String){
-        print(myListInString)
         DispatchQueue.main.async {
             if ((self.myListInString?.contains(title)) == true){
                 self.isMyList = true
@@ -153,9 +151,7 @@ class MyListViewModel: ObservableObject{
                             print((err?.localizedDescription)!)
                             return
                         }
-                        
                         for i in snap!.documentChanges{
-                            
                             let id = i.document.documentID
                             let title = i.document.get("title") as? String
                             print("title:", title!)

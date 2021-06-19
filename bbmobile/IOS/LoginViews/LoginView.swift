@@ -93,10 +93,14 @@ struct LoginView: View {
             
             if goToHome {
                 ContentView(goToHome: $goToHome)
+                    .animation(.easeInOut)
+                    .transition(.opacity)
             }
             
             if goToAdmin{
                 AdminView(goToAdmin: $goToAdmin)
+                    .animation(.easeInOut)
+                    .transition(.opacity)
             }
             
             if(goToRegister){

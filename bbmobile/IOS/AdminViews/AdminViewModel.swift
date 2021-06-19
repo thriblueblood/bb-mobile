@@ -38,7 +38,6 @@ class AdminViewModel : ObservableObject{
                     self.books = documents.map({ (queryDocumentSnapshot) -> Book in
                         let data = queryDocumentSnapshot.data()
                        let name = data["title"] as? String
-                       print(name!)
                        let author = data["author"] as? String
                        let overview = data["overview"] as! String
                        let url = data["URL"] as! String

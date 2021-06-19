@@ -19,7 +19,7 @@ struct SearchResultView: View {
     
     var body: some View {
         LazyVGrid(columns: columns,spacing:10,content: {
-            ForEach(books, id: \.id){book in
+            ForEach(books, id: \.name){book in
                 EachBookHomeView(book: book)
                     .onTapGesture {
                         self.showBookDetail = book

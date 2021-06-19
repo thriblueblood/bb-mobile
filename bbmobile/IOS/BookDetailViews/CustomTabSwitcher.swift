@@ -11,7 +11,9 @@ struct CustomTabSwitcher: View {
     @State private var currentTabIndex : BookTab = .more
     var tabs : [BookTab]
     var book : Book
-//    @ObservedObject var viewModel = BookDetailViewModel()
+    
+    @ObservedObject var viewModel = BookDetailViewModel()
+    @ObservedObject var data = HomeViewModel()
 
     
     func flexTabWidth(tabs : BookTab)-> CGFloat{
@@ -53,9 +55,11 @@ struct CustomTabSwitcher: View {
 //                }
                 
             case .more :
-                MoreLikeThis(book:book.moreLikeThis ?? [])
+                MoreLikeThis(book:viewModel.getMoreLikeThis(genres: book.category, data: data.bookData))
             }
-        }
+        }.onAppear(perform: {
+            data.fetchBookData()
+        })
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @ObservedObject var viewModel = SearchViewModel()
+    @ObservedObject var data = HomeViewModel()
     @State private var text : String = ""
     @State private var showBookDetail : Book? = nil
     
@@ -18,7 +19,7 @@ struct SearchView: View {
             return text
         } set:{
             text = $0 // $0 is the changes made / save value to the text
-            viewModel.updateSearchText(string: $0)
+            viewModel.updateSearchText(array:data.bookData,string: $0)
         }
         
         return ZStack{
@@ -59,7 +60,9 @@ struct SearchView: View {
             if (showBookDetail != nil){
                 BookDetailView(book: showBookDetail!, showBookDetail: $showBookDetail)
             }
-        }
+        }.onAppear(perform: {
+            data.fetchBookData()
+        })
     }
 }
 

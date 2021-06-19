@@ -206,7 +206,17 @@ struct AdminAddBookView: View {
                                 showAddNewBook = false
                                 showBookDetail = nil
                                 
-                            }else{
+                            }else if deleteFileClicked == true && deleteCoverClicked == false{
+                                viewModel.editBook(title: title, author: author, genres:viewModel.divGenres(genres: genres), overview: overview)
+                                uploadFile()
+                                showAddNewBook = false
+                                showBookDetail = nil
+                            }else if deleteFileClicked == false && deleteCoverClicked == true{
+                                uploadImage()
+                                showAddNewBook = false
+                                showBookDetail = nil
+                            }
+                            else{
                                 let group = DispatchGroup()
                                 group.enter()
                                 uploadImage()

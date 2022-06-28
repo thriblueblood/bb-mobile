@@ -26,6 +26,10 @@ class HomeViewModel: ObservableObject{
     @Published var biographyBookData = [Book]()
     @Published var romanceBookData = [Book]()
     @Published var sportBookData = [Book]()
+    
+    @Published var isLoading : Bool = false
+    
+    @Published var viewState: AccountState = .loading
 
     @Published var dataIsLoaded : Bool = false
     
@@ -92,7 +96,11 @@ class HomeViewModel: ObservableObject{
                         
                        return Book(name: name ?? "", URL: URL(string:url)!, category: categories, author: author, overview: overview, content: URL(string : content ?? ""))
                     })
+                print("Book Data", self.bookData)
+                self.setState(state: .ready)
+                print("Loading", self.isLoading)
                     self.setBookCate()
+                
     }
     }
     
@@ -168,6 +176,12 @@ class HomeViewModel: ObservableObject{
         }
     }
 
+    private func setState(state:AccountState){
+        DispatchQueue.main.async {
+            self.viewState = state
+            self.isLoading = state == .loading //if state is equal loading then isLoading = true
+        }
+    }
 }
 
 

@@ -39,6 +39,7 @@ class BookDetailViewModel: ObservableObject{
                 moreLikeThis.append(book)
             }
         }
+        print("More Like This", moreLikeThis)
         return moreLikeThis
     }
 }

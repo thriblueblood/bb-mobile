@@ -57,6 +57,7 @@ struct PreviewHomeView: View {
                         Spacer()
                         MyListButton(text: "My List", book: book)
                         Button(action: {
+                            print(book)
                             showBookDetail = book
                         }, label: {
                             CustomButton(img: "book", text: "Read now")

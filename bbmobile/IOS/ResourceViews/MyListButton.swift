@@ -14,30 +14,26 @@ struct MyListButton: View {
     @ObservedObject var viewModel = MyListViewModel()
     
     var body: some View {
-            Button(action: {
-                viewModel.switchMyList(title: book.name)
-    //            let group = DispatchGroup()
-    //            group.enter()
-    //            viewModel.addToMyList(bookname: book.name)
-    //            group.leave()
-    //            group.notify(queue: DispatchQueue.global(qos: .background)){
-    //                viewModel.getMyListData()
-    //                }
-                
-            }, label: {
-                VStack{
-                    Image(systemName: viewModel.isMyList ? "checkmark":"plus")
-                    .foregroundColor(Color("MainColor"))
-                    .font(.system(size: 24))
-                Text(text)
-                    .font(.custom("Cocogoose", size: 12))
-                    .foregroundColor(.white)
-                }
+        ZStack {
+            if !viewModel.isLoading{
+                Button(action: {
+                    viewModel.switchMyList(title: book.name)
+                }, label: {
+                    VStack{
+                        Image(systemName: viewModel.isMyList ? "checkmark":"plus")
+                            .foregroundColor(Color("MainColor"))
+                            .font(.system(size: 24))
+                        Text(text)
+                            .font(.custom("Cocogoose", size: 12))
+                            .foregroundColor(.white)
+                    }
+                    
+                })
+            }
             
-            }).onAppear(perform: {
-                viewModel.getMyListData()
-                viewModel.checkIsMyList(title: book.name)
-            })
+        }.onAppear(perform: {
+            viewModel.fetchMyList(title: book.name)
+        })
     }
 }
 

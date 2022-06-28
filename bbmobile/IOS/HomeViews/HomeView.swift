@@ -33,8 +33,6 @@ struct HomeView: View {
                 
                 if (showBookDetail != nil){
                     BookDetailView(book: showBookDetail!,showBookDetail: $showBookDetail)
-                    //                    .animation(.easeIn)
-                    //                    .transition(.opacity)
                 }
                 
                 if(showAccountView){
@@ -45,7 +43,6 @@ struct HomeView: View {
         .onAppear(perform: {
         })
         .foregroundColor(.white)
-        //        .font(.custom("Cocogoose", size: 16))
     }
 }
 

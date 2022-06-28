@@ -24,7 +24,8 @@ class RegisterViewModel: ObservableObject{
                     "email": email,
                     "password": password,
                     "subscribe": false,
-                    "isAdmin": false
+                    "isAdmin": false,
+                    "myList" : []
                 ])
             }
         }

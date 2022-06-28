@@ -22,6 +22,7 @@ struct SearchResultView: View {
             ForEach(books, id: \.name){book in
                 EachBookHomeView(book: book)
                     .onTapGesture {
+                        print(book)
                         self.showBookDetail = book
                     }
             }

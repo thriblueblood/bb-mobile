@@ -13,6 +13,7 @@ import SwiftUI
 struct MyListView: View {
     @State private var showBookDetail : Book? = nil
     @ObservedObject var viewModel = MyListViewModel()
+    @ObservedObject var data = HomeViewModel()
     
     let columns : [GridItem] = [
         GridItem(.flexible()),
@@ -32,30 +33,32 @@ struct MyListView: View {
                         .foregroundColor(Color("MainColor"))
                     Spacer()
                 }.padding()
-                
-                
-//                if viewModel.isLoaded{
+                if !viewModel.isLoading{
                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
                         LazyVGrid(columns: columns,spacing:10,content: {
-                        ForEach(viewModel.myList){book in
+                            ForEach(viewModel.myList, id: \.name){book in
                                 KFImage(book.URL)
                                     .resizable()
                                     .scaledToFill()
                                     .id(UUID())
                                     .onTapGesture {
+                                        print(book)
                                         self.showBookDetail = book
                                     }
                             }
                         })
+                    }).onAppear(perform: {
+                        
                     })
-//                }
+                }
                 Spacer()
-            }.onAppear(perform: {
-                viewModel.getMyListData()
-            })
+            }
             if (showBookDetail != nil){
                 BookDetailView(book: showBookDetail!, showBookDetail: $showBookDetail)
             }
+        }.onAppear {
+            data.fetchBookData()
+            viewModel.getMyListData()
         }
         
     }

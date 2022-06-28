@@ -31,10 +31,26 @@ struct AdminBookDetailView: View {
         return image2
     }
     
+    public func isCateLast(cate : String)-> Bool {
+        let count = book.category.count
+        
+        if let index = book.category.firstIndex(of: cate){
+            if (index+1 != count){ //Check the index of array
+                return false
+            }
+        }
+        return true
+    }
+    
     var genresList : String{
         var l : String = ""
         for i in book.category {
-            l += "\(i), "
+            if !isCateLast(cate: i){
+                l += "\(i), "
+            }else{
+                l += "\(i)"
+            }
+           
         }
         return l
     }

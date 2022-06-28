@@ -12,14 +12,18 @@ struct MoreLikeThis: View {
     let columns = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
     var body: some View {
-        ScrollView(showsIndicators:false){
-            LazyVGrid(columns:columns){
-                ForEach(0..<book.count) { index in
-                    EachBookHomeView(book: book[index])
+        ZStack{
+            ScrollView(showsIndicators:false){
+                LazyVGrid(columns:columns){
+                    ForEach(0..<book.count) { index in
+                        EachBookHomeView(book: book[index])
+                    }
                 }
-            
             }
-        }
+        }.onAppear(perform: {
+            print("More like this appear")
+        })
+
     }
 }
 

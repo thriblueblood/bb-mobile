@@ -48,7 +48,6 @@ class AdminViewModel : ObservableObject{
                     })
                     self.loadingState = .success
                 }
-                
                  }
     }
     

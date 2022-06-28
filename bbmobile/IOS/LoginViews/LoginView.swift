@@ -32,7 +32,6 @@ struct LoginView: View {
                     .padding(.top,-35)
                     .font(.custom("Lato-Bold", size: 16))
                     .foregroundColor(Color("SecondaryColor"))
-                
                 TextField("Username", text: $email)
                     .padding(.all)
                     .font(.custom("Lato-Regular", size: 16))
@@ -48,10 +47,23 @@ struct LoginView: View {
                 Button(action: {
                     viewModel.login(email : email, password : password) {
 //                    viewModel.checkUserType()
+//                        if viewModel.userType{
+//                            goToAdmin = true
+//                            self.email = ""
+//                            self.password = ""
+//                        }else{
+//                            goToHome = true
+//                            self.email = ""
+//                            self.password = ""
+//                        }
                         if email == "Kmitl@hotmail.com" && password == "123456"{
                             goToAdmin = true
+                            self.email = ""
+                            self.password = ""
                         }else{
                             goToHome = true
+                            self.email = ""
+                            self.password = ""
                         }
                     
                     }

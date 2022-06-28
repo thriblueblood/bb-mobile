@@ -96,7 +96,8 @@ struct AdminAddBookView: View {
                 }
                 //Top Section
                 if image != nil{
-                    image?.resizable()                                .frame(width:UIScreen.main.bounds.width/3,height:UIScreen.main.bounds.height/4.5)
+                    image?.resizable()
+                        .frame(width:UIScreen.main.bounds.width/3,height:UIScreen.main.bounds.height/4.5)
                         .overlay(Group{
                             ZStack{
                                 Button(action: {

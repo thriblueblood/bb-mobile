@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 struct CustomTabSwitcher: View {
+    
     @State private var currentTabIndex : BookTab = .more
     var tabs : [BookTab]
     var book : Book
@@ -22,44 +23,38 @@ struct CustomTabSwitcher: View {
         
     }
     var body: some View {
-        VStack {
-            HStack(spacing:10){
-                ForEach(tabs,id: \.self) { tab in
-                    VStack{
-                        Button(action: {
-                            currentTabIndex = tab
-                        }, label: {
-                            Text(tab.rawValue)
-                                .foregroundColor( tab == currentTabIndex ? Color("CustomWhite"):Color("CustomBlack"))
-                                .font(.custom("Lato-Bold", size: 16))
-                        })
-                        Rectangle()
-                            .foregroundColor( tab == currentTabIndex ? Color("MainColor"):Color("SecondaryColor"))
-                            .frame(width:flexTabWidth(tabs: tab),height:5)
-                    }
+        if (!data.isLoading){
+            VStack {
+                HStack(spacing:10){
+                    ForEach(tabs,id: \.self) { tab in
+                        VStack{
+                            Button(action: {
+                                currentTabIndex = tab
+                            }, label: {
+                                Text(tab.rawValue)
+                                    .foregroundColor( tab == currentTabIndex ? Color("CustomWhite"):Color("CustomBlack"))
+                                    .font(.custom("Lato-Bold", size: 16))
+                            })
+                            Rectangle()
+                                .foregroundColor( tab == currentTabIndex ? Color("MainColor"):Color("SecondaryColor"))
+                                .frame(width:flexTabWidth(tabs: tab),height:5)
+                        }
 
-                  
+                      
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            switch currentTabIndex{
-            
-//            case .content :
-//
-//                if viewModel.userStatus{
-//                    ChapterView(book:book)
-//                        .padding(.top)
-//                }
-//                else{
-//                    LockedView()
-//                }
                 
-            case .more :
-                MoreLikeThis(book:viewModel.getMoreLikeThis(genres: book.category, data: data.bookData))
-            }
-        }.onAppear(perform: {
-            data.fetchBookData()
-        })
+                switch currentTabIndex{                    
+                case .more :
+                        MoreLikeThis(book:viewModel.getMoreLikeThis(genres: book.category, data: data.bookData))
+                }
+            }.onAppear(perform: {
+                data.fetchBookData()
+    //            print(data.bookData)
+            })
+        }
+
     }
 }
 

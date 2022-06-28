@@ -15,6 +15,8 @@ struct BookDetailView: View {
     @ObservedObject var viewModel = MyListViewModel()
     @State var showContent : Bool = false
     
+
+    
     var body: some View {
         ZStack{
             Color("SecondaryColor")
@@ -47,12 +49,19 @@ struct BookDetailView: View {
                             }.onAppear(perform: {
                                 viewModelData.getUserData()
                             })
-                        CustomButton(img: "bookmark.fill", text: viewModel.isMyList ? "Delte to my list":"Add to my list")
-                            .foregroundColor(Color("CustomWhite"))
-                            .background(Color("CustomBlack"))
-                            .onTapGesture {
-                                viewModel.switchMyList(title: book.name)
-                            }
+                        if !viewModel.isLoading {
+                            CustomButton(img: viewModel.isMyList ? "bookmark.slash.fill":"bookmark.fill", text: viewModel.isMyList ? "Delete to my list":"Add to my list")
+                                .foregroundColor(Color("CustomWhite"))
+                                .background(Color("CustomBlack"))
+                                .onAppear(perform: {
+                                    viewModel.fetchMyList(title: book.name)
+                                })
+                                .onTapGesture {
+                                    viewModel.switchMyList(title: book.name)
+                                    viewModel.getMyListData()
+                                }
+                        }
+
                         CustomTabSwitcher(tabs: [BookTab.more],book: book)
 
                     }.padding(.horizontal,5)
@@ -69,13 +78,31 @@ struct BookDetailView: View {
 struct TopBookInfoView: View {
     var book : Book
     
+    public func isCateLast(cate : String)-> Bool {
+        let count = book.category.count
+        
+        if let index = book.category.firstIndex(of: cate){
+            if (index+1 != count){ //Check the index of array
+                return false
+            }
+        }
+        return true
+    }
+    
     var genresList : String{
         var l : String = ""
         for i in book.category {
-            l += "\(i), "
+            if !isCateLast(cate: i){
+                l += "\(i), "
+            }else{
+                l += "\(i)"
+            }
+           
         }
         return l
     }
+    
+
     
     var body: some View {
         VStack{

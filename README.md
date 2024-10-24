@@ -24,7 +24,11 @@ Non-Functional Requirement:
 * The system shall implemented in MVVM pattern
 * The user shall be able to look for book by their favorite category
 
+## Screenshot 
+<img width="802" alt="1" src="https://github.com/user-attachments/assets/f48365ad-926c-4ffd-9b56-a231bac5f8cb">
 
+<img width="802" alt="2" src="https://github.com/user-attachments/assets/234b5369-45b6-46ea-80f8-60714c1b5639">
 
+<img width="802" alt="3" src="https://github.com/user-attachments/assets/675242e6-b704-4435-84d2-6c2fccdd73d8">
 
 
